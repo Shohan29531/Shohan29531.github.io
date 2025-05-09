@@ -1,11 +1,12 @@
+
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   background: #f5f7fb;
   color: #333;
 }
-
 a {
   color: #0066cc;
   text-decoration: none;
@@ -13,48 +14,53 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
+.topbar {
+  background: #003366;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.topbar a {
+  color: white;
+}
 .grid {
   display: grid;
   grid-template-columns: 250px 1fr 300px;
   gap: 30px;
   max-width: 1200px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 30px 20px;
   background: #ffffff;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
-
 .left, .center, .right {
   padding: 10px;
 }
-
 .profile-pic {
   width: 100%;
   border-radius: 6px;
   margin-bottom: 10px;
 }
-
 .socials img {
-  width: 24px;
+  width: 20px;
   margin-right: 10px;
   vertical-align: middle;
 }
-
 .news {
   list-style-type: square;
   padding-left: 20px;
 }
-
 .news li {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
-
 .highlight {
   color: #c0392b;
   font-weight: 600;
 }
-
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
