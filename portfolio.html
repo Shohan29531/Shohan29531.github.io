@@ -106,27 +106,27 @@
     </div>
   </div>
 
-    <div class="proj-card">
-      <div class="proj-card-top hci">
-        <p class="proj-cat hci">HCI · Accessibility · Computer Vision</p>
-        <h2 class="proj-title">BLV Road Nav Objects</h2>
-        <p class="proj-desc">Identified 90 key objects essential for BLV individuals' street navigation from 21 real-world videos. A follow-up focus group study revealed major gaps in prominent vision datasets such as KITTI and MS-COCO.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">BLV</span>
-          <span class="proj-tag">Dataset</span>
-          <span class="proj-tag">Navigation</span>
-          <span class="proj-tag">Focus Group</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge award">ASSETS'24</span>
-        <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3663548.3688538" target="_blank">Paper</a>
-        <a class="pub-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+<!-- BLV NAV OBJECTS CARD -->
+<div class="port-card" onclick="openModal('blvnavobjects')">
+  <img class="port-card-img"
+       src="assets/blv-nav-objects-cover.png"
+       alt="BLV navigation objects project"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+  <div class="port-card-img-placeholder" style="display:none;">BLV Nav Objects</div>
+
+  <div class="port-card-body">
+    <p class="port-card-cat">HCI · Accessibility · Computer Vision</p>
+    <h2 class="port-card-title">BLV Road Nav Objects</h2>
+    <p class="port-card-desc">
+      A taxonomy and benchmark of objects crucial for blind and low-vision navigation, built from real-world navigation videos and focus-group refinement to expose gaps in current vision models.
+    </p>
+  </div>
+
+  <div class="port-card-footer">
+    <span class="proj-badge award">ASSETS'24</span>
+    <span class="port-card-hint">Click to explore ↗</span>
+  </div>
+</div>
 
     <!-- SPACEXMAG CARD -->
 <div class="port-card" onclick="openModal('spacexmag')">
@@ -150,46 +150,49 @@
   </div>
 </div>
 
-    <div class="proj-card">
-      <div class="proj-card-top hci">
-        <p class="proj-cat hci">HCI · Accessibility · Probabilistic Modeling</p>
-        <h2 class="proj-title">Accessibility Metrics (PAALSS)</h2>
-        <p class="proj-desc">Identified navigational complexity as the key usability barrier for blind users; proposed a probabilistic model with three metrics (PAALSS) to quantify and improve desktop application accessibility for keystroke-based non-visual interaction.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Blind Users</span>
-          <span class="proj-tag">Desktop</span>
-          <span class="proj-tag">Probabilistic Model</span>
-          <span class="proj-tag">Metrics</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge award">CHI'23</span>
-        <a class="pub-link" href="https://doi.org/10.1145/3544548.3581400" target="_blank">Paper</a>
-        <a class="pub-link" href="https://github.com/Shohan29531/paalss-analyzer" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+    <!-- ACCESSIBILITY METRICS CARD -->
+<div class="port-card" onclick="openModal('accmetrics')">
+  <img class="port-card-img"
+       src="assets/acc-metrics-cover.png"
+       alt="Accessibility Metrics project"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+  <div class="port-card-img-placeholder" style="display:none;">Accessibility Metrics</div>
 
-    <div class="proj-card">
-      <div class="proj-card-top hci">
-        <p class="proj-cat hci">HCI · Accessibility · API</p>
-        <h2 class="proj-title">OpenAccAPI</h2>
-        <p class="proj-desc">An open accessibility API for desktop and web applications. Provides structured programmatic access to UI component metadata to support assistive technology developers and accessibility researchers.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">API</span>
-          <span class="proj-tag">Accessibility</span>
-          <span class="proj-tag">Assistive Tech</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <a class="pub-link" href="https://github.com/Shohan29531/OpenAccAPI" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="port-card-body">
+    <p class="port-card-cat">HCI · Accessibility · Desktop</p>
+    <h2 class="port-card-title">Accessibility Metrics</h2>
+    <p class="port-card-desc">
+      A probabilistic framework for estimating the perceived accessibility of desktop applications in keystroke-based non-visual interaction, using UI structure to quantify navigation difficulty without requiring full user studies.
+    </p>
+  </div>
+
+  <div class="port-card-footer">
+    <span class="proj-badge award">CHI'23</span>
+    <span class="port-card-hint">Click to explore ↗</span>
+  </div>
+</div>
+
+    <!-- OPENACCAPI CARD -->
+<div class="port-card" onclick="openModal('openaccapi')">
+  <img class="port-card-img"
+       src="assets/openaccapi-cover.png"
+       alt="OpenAccAPI interface"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+  <div class="port-card-img-placeholder" style="display:none;">OpenAccAPI</div>
+
+  <div class="port-card-body">
+    <p class="port-card-cat">HCI · Accessibility · XR</p>
+    <h2 class="port-card-title">OpenAccAPI</h2>
+    <p class="port-card-desc">
+      An open-source accessibility API for 3D and VR applications that exposes scene and UI elements to assistive technologies, enabling non-visual navigation, text-to-speech, and spatial feedback in existing Unity apps.
+    </p>
+  </div>
+
+  <div class="port-card-footer">
+    <span class="proj-badge preprint">Under Review</span>
+    <span class="port-card-hint">Click to explore ↗</span>
+  </div>
+</div>
 
   </div><!-- end hci grid -->
 
@@ -279,26 +282,27 @@
   <div class="sec-divider" style="margin-top:2.5rem;">LLMs &amp; Agentic AI</div>
   <div class="portfolio-grid">
 
-    <div class="proj-card">
-      <div class="proj-card-top llm">
-        <p class="proj-cat llm">LLMs · Education · Agentic AI</p>
-        <h2 class="proj-title">TeachPilot</h2>
-        <p class="proj-desc">Classroom LLM assistant (Streamlit + Ollama) with instructor-controlled prompts and multi-level help scaffolding to promote think-first student engagement. Pre/post study showed statistically significant gains in AI literacy.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Streamlit</span>
-          <span class="proj-tag">Ollama</span>
-          <span class="proj-tag">EdTech</span>
-          <span class="proj-tag">RAG</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge preprint">AIED'26 · Under Review</span>
-        <a class="pub-link" href="https://github.com/Shohan29531/teach-pilot" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+    <!-- TEACHPILOT CARD -->
+<div class="port-card" onclick="openModal('teachpilot')">
+  <img class="port-card-img"
+       src="assets/teach-pilot-promo.png"
+       alt="TeachPilot interface"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+  <div class="port-card-img-placeholder" style="display:none;">TeachPilot</div>
+
+  <div class="port-card-body">
+    <p class="port-card-cat">LLMs · Education · Agentic AI</p>
+    <h2 class="port-card-title">TeachPilot</h2>
+    <p class="port-card-desc">
+      A teacher-guided classroom LLM assistant that adapts per assignment, combines base and assignment-specific prompts, and enforces instructor-defined constraints to promote reasoning-first learning.
+    </p>
+  </div>
+
+  <div class="port-card-footer">
+    <span class="proj-badge preprint">Classroom LLM System</span>
+    <span class="port-card-hint">Click to explore ↗</span>
+  </div>
+</div>
 
     <div class="proj-card">
       <div class="proj-card-top llm">
@@ -579,6 +583,372 @@
       <div class="modal-text">
         <p>
           SpaceXMag demonstrates that DOM-aware, optimization-driven layout restructuring can make magnification substantially more usable in real-world mobile interfaces. It points toward smarter adaptive accessibility tools that preserve context instead of simply enlarging pixels.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHPILOT MODAL -->
+<div class="modal-overlay" id="modal-teachpilot" onclick="closeModalOnOverlay(event,'teachpilot')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('teachpilot')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">LLMs · Education · Classroom Systems</p>
+      <h2 class="modal-title">TeachPilot: Instructor-Guided LLM Support for Reasoning-First Learning</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
+          Classroom LLM System
+        </span>
+        <a class="pub-link" href="https://github.com/Shohan29531/teach-pilot" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">Ollama</span>
+        <span class="proj-tag">Education</span>
+        <span class="proj-tag">Prompt Control</span>
+        <span class="proj-tag">Supabase</span>
+        <span class="proj-tag">Assignments</span>
+      </div>
+
+      <!-- <img class="modal-img"
+           src="assets/teach-pilot-promo.png"
+           alt="TeachPilot interface overview" /> -->
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          In classroom settings, general-purpose LLMs can easily over-help, provide direct solutions too quickly, or ignore the structure and expectations of a specific assignment. This makes it hard for instructors to use AI support without undermining students’ own reasoning process.
+        </p>
+        <p>
+          Instructors also need a practical way to adapt AI behavior across assignments, manage student access, and review interactions in a structured classroom environment.
+        </p>
+      </div>
+
+      <!-- <img class="modal-img"
+           src="assets/teachpilot-workflow.png"
+           alt="TeachPilot assignment-guided workflow" /> -->
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          TeachPilot is a teacher-guided LLM assistant that changes behavior per assignment and applies instructor-defined guardrails before sending requests to the model.
+        </p>
+        <ul>
+          <li>Uses a <strong>two-part prompting structure</strong>: a base system prompt plus an assignment-specific prompt.</li>
+          <li>Supports <strong>assignment-scoped conversations</strong>, so each chat is tied to the active coursework context.</li>
+          <li>Allows <strong>text, image, and file uploads</strong> in chat when using compatible vision-language models.</li>
+          <li>Provides <strong>admin controls</strong> for assignments, prompts, users, and conversation browsing.</li>
+          <li>Provides a <strong>student-facing chat experience</strong> with copy-message and copy-conversation utilities.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">System Design</p>
+      <div class="modal-text">
+        <ul>
+          <li>Built with <strong>Streamlit</strong> and <strong>Ollama Cloud</strong>.</li>
+          <li>Persists chats and metadata in <strong>Supabase Postgres</strong>, with optional Supabase Storage for uploads.</li>
+          <li>Supports role-based use: <strong>admin</strong> manages assignments/prompts/users, while <strong>students</strong> use chat only.</li>
+          <li>Processes uploaded images and files before composing the final model request.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>Creates a more controlled classroom AI workflow centered on <strong>reasoning-first support</strong> instead of unrestricted answer delivery.</li>
+          <li>Gives instructors direct control over <strong>assignment framing</strong>, <strong>help constraints</strong>, and <strong>conversation review</strong>.</li>
+          <li>Makes it feasible to deploy course-specific AI support with persistent history, transcript access, and manageable administration.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          TeachPilot shows how classroom AI can be structured as an instructor-shaped system rather than a generic chatbot. By combining assignment-aware prompting, role-based controls, and persistent conversation management, it supports more accountable and pedagogically aligned AI use in education.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- BLV NAV OBJECTS MODAL -->
+<div class="modal-overlay" id="modal-blvnavobjects" onclick="closeModalOnOverlay(event,'blvnavobjects')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('blvnavobjects')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">HCI · Accessibility · Computer Vision</p>
+      <h2 class="modal-title">Identifying Crucial Objects in Blind and Low-Vision Individuals’ Navigation</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
+          ASSETS'24
+        </span>
+        <a class="pub-link" href="https://dl.acm.org/" target="_blank">Paper</a>
+        <a class="pub-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">Blind Users</span>
+        <span class="proj-tag">Low Vision</span>
+        <span class="proj-tag">Object Taxonomy</span>
+        <span class="proj-tag">Benchmarking</span>
+        <span class="proj-tag">Vision Models</span>
+        <span class="proj-tag">Accessibility</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/blv-nav-objects-overview.png"
+           alt="BLV navigation objects overview" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          Blind and low-vision (BLV) individuals face major challenges when navigating urban and indoor environments, but existing computer vision datasets often miss many objects that are critical for safe movement.
+        </p>
+        <p>
+          Common datasets such as ImageNet and MS-COCO do not adequately represent hazards and navigation-relevant objects like overhanging branches, sidewalk pits, or bus stops, limiting the usefulness of current vision systems for accessibility.
+        </p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/blv-nav-objects-taxonomy.png"
+           alt="BLV navigation object taxonomy" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          This project created an accessibility-centered object taxonomy and benchmark specifically for BLV navigation.
+        </p>
+        <ul>
+          <li>Analyzed <strong>21 publicly available navigation videos</strong> involving BLV individuals.</li>
+          <li>Identified <strong>80+ candidate objects</strong> that affected navigation through interaction, guidance, or hazard potential.</li>
+          <li>Refined the list through a <strong>6-person focus group</strong> with blind, low-vision, and sighted accessibility experts.</li>
+          <li>Produced a final set of <strong>90 objects across 15 semantic categories</strong>.</li>
+          <li>Labeled <strong>31 video segments</strong> with object presence and absence annotations.</li>
+          <li>Benchmarked <strong>seven vision models</strong> including detection, segmentation, and open-vocabulary systems.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>Modern vision models performed poorly on many accessibility-critical objects.</li>
+          <li>Detection and segmentation models typically recognized only <strong>12–15 objects</strong>.</li>
+          <li>Open-vocabulary models performed better, but still had incomplete coverage.</li>
+          <li><strong>BLIP</strong> achieved the best reported result with an <strong>F1 score of 0.48</strong>, yet still missed important safety-relevant objects such as barrier stumps and tree branches.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          This work highlights a major gap between state-of-the-art vision systems and the real object awareness needed for safe BLV navigation. By releasing a benchmark dataset and object taxonomy grounded in accessibility needs, it lays the foundation for more inclusive navigation aids and future accessibility-focused vision models.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCESSIBILITY METRICS MODAL -->
+<div class="modal-overlay" id="modal-accmetrics" onclick="closeModalOnOverlay(event,'accmetrics')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('accmetrics')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">HCI · Accessibility · Non-Visual Interaction</p>
+      <h2 class="modal-title">Quantifying Perceived Accessibility in Non-visual Interaction</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
+          CHI'23
+        </span>
+        <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3544548.3581400" target="_blank">Paper</a>
+        <a class="pub-link" href="https://github.com/Shohan29531/Accessibility-Metrics" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">C#</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">NVDA</span>
+        <span class="proj-tag">Accessibility APIs</span>
+        <span class="proj-tag">Probabilistic Modeling</span>
+        <span class="proj-tag">Desktop UI</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/acc-metrics-overview.png"
+           alt="Accessibility Metrics overview" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          Blind screen reader users rely on keyboard navigation to interact with desktop applications, but navigating menus, toolbars, dialogs, and nested interface structures is often slow, inconsistent, and frustrating.
+        </p>
+        <p>
+          Existing accessibility evaluation methods usually focus on compliance checks or labor-intensive user studies. They do not provide a scalable way to estimate <strong>perceived accessibility</strong> — how accessible an application actually feels to blind users during real non-visual interaction.
+        </p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/acc-metrics-framework.png"
+           alt="Accessibility Metrics framework" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          This project introduces a probabilistic interaction framework for estimating perceived accessibility from the structure of desktop interfaces and keystroke-based navigation behavior.
+        </p>
+        <ul>
+          <li>Built from findings of a formative study with <strong>11 blind participants</strong>.</li>
+          <li>Uses <strong>UI hierarchies extracted through accessibility APIs</strong>, without needing pixel data or screen recordings.</li>
+          <li>Models navigation effort through a <strong>probabilistic interaction model</strong> and keystroke cost analysis.</li>
+          <li>Defines three task-agnostic metrics: <strong>Complexity</strong>, <strong>Coverage</strong>, and <strong>Reachability</strong>.</li>
+          <li>Benchmarks accessibility across <strong>11 commonly used Windows applications</strong>.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Metrics</p>
+      <div class="modal-text">
+        <ul>
+          <li><strong>Complexity:</strong> expected keystrokes needed to reach a target UI element.</li>
+          <li><strong>Coverage:</strong> percentage of the interface reachable within a fixed keystroke budget.</li>
+          <li><strong>Reachability:</strong> fraction of the interface that can be accessed efficiently using available shortcuts and navigation structure.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>The metrics revealed clear perceived-accessibility differences across applications.</li>
+          <li><strong>Notepad</strong> showed low complexity (<strong>1.63</strong>), while <strong>Microsoft Word</strong> showed substantially higher complexity (<strong>3.51</strong>).</li>
+          <li>Participants described the metrics as intuitive and reflective of their actual navigation effort.</li>
+          <li>Applications with high complexity and low coverage were consistently experienced as more frustrating and difficult to use.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          This work provides an automated, user-centered way to estimate perceived accessibility for non-visual desktop interaction. It helps developers and auditors compare applications, identify concrete navigation bottlenecks, and move accessibility evaluation toward scalable, interface-aware assessment rather than compliance alone.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- OPENACCAPI MODAL -->
+<div class="modal-overlay" id="modal-openaccapi" onclick="closeModalOnOverlay(event,'openaccapi')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('openaccapi')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">HCI · Accessibility · XR Systems</p>
+      <h2 class="modal-title">OpenAccAPI: An Open Source Accessibility API for 3D and VR Apps</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
+          Under Review
+        </span>
+        <a class="pub-link" href="https://github.com/Shohan29531/OpenAccAPI" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">Unity</span>
+        <span class="proj-tag">XR</span>
+        <span class="proj-tag">Accessibility API</span>
+        <span class="proj-tag">Screen Readers</span>
+        <span class="proj-tag">SteamVR</span>
+        <span class="proj-tag">Meta Quest Link</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/openaccapi-overview.png"
+           alt="OpenAccAPI overview" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          Blind and low-vision users face major barriers in Unity-based 3D and VR applications because these apps often lack screen reader support, accessible UI components, and effective keyboard navigation.
+        </p>
+        <p>
+          Existing accessibility plugins are fragmented, visually oriented, and usually must be built into the game during development, which makes them hard to retrofit and inadequate for non-visual interaction in existing immersive applications.
+        </p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/openaccapi-pipeline.png"
+           alt="OpenAccAPI architecture and workflow" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          OpenAccAPI is an extensible accessibility API for 3D and VR applications that exposes UI and scene elements to assistive technologies and supports retrofitting accessibility into existing Unity apps.
+        </p>
+        <ul>
+          <li>Provides access to scene and interface elements for assistive tools.</li>
+          <li>Enables features such as <strong>text-to-speech</strong>, <strong>UI text highlighting</strong>, <strong>non-visual navigation</strong>, and <strong>cursor orientation feedback</strong>.</li>
+          <li>Includes a <strong>reference implementation for Unity</strong>.</li>
+          <li>Supports <strong>plugin injection into existing Unity games in three clicks</strong>.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Evaluation</p>
+      <div class="modal-text">
+        <ul>
+          <li>Tested on <strong>15 popular Unity games on Steam</strong>.</li>
+          <li>Most features worked smoothly in <strong>12 of the 15 games</strong>.</li>
+          <li>Small-scale studies with blindfolded users suggested better spatial awareness and navigation capability in 3D and VR settings.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>Showed that accessibility features can be retrofitted into existing Unity applications rather than only added during development.</li>
+          <li>Demonstrated generalizability across a diverse set of real Unity games.</li>
+          <li>Reduced the effort needed for developers to add accessibility support in immersive environments.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          OpenAccAPI introduces a comprehensive accessibility API for 3D and VR apps aimed at non-visual interaction. It creates a practical path toward more accessible immersive software and lays groundwork for future research in accessible XR design and agent-based non-visual navigation.
         </p>
       </div>
     </div>
