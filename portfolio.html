@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio · Md Touhidul Islam</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* ── IMAGE CARD (IKIWISI style) ── */
+    .port-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow .2s, transform .18s;
+      display: flex;
+      flex-direction: column;
+    }
+    .port-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .port-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .port-card-img-placeholder { width: 100%; height: 200px; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); font-size: .8rem; }
+    .port-card-body { padding: 1.2rem 1.3rem 1rem; flex: 1; display: flex; flex-direction: column; border-top: 3px solid #7b5ea7; }
+    .port-card-cat { font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; color: #7b5ea7; }
+    .port-card-title { font-family: var(--font-serif); font-size: 1.05rem; color: var(--navy); font-weight: 500; line-height: 1.3; margin-bottom: .5rem; }
+    .port-card-desc { font-size: .83rem; color: var(--text-2); line-height: 1.6; flex: 1; }
+    .port-card-footer { padding: .7rem 1.3rem; border-top: 1px solid var(--border-soft); background: var(--surface-2); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .port-card-hint { font-size: .72rem; color: var(--text-3); font-style: italic; }
+
+    /* ── MODAL ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 500; align-items: center; justify-content: center; padding: 1.5rem; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--surface); border-radius: var(--radius); max-width: 760px; width: 100%; max-height: 88vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.3); animation: modalIn .18s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-header { position: relative; }
+    .modal-cover { width: 100%; max-height: 320px; object-fit: cover; display: block; border-radius: var(--radius) var(--radius) 0 0; }
+    .modal-close { position: absolute; top: .75rem; right: .75rem; background: rgba(0,0,0,.5); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .modal-close:hover { background: var(--accent); }
+    .modal-body { padding: 1.8rem 2rem 2rem; }
+    .modal-cat { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; color: #7b5ea7; }
+    .modal-title { font-family: var(--font-serif); font-size: 1.4rem; color: var(--navy); font-weight: 600; line-height: 1.3; margin-bottom: .7rem; }
+    .modal-links { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+    .modal-section-title { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 1.4rem 0 .5rem; }
+    .modal-text { font-size: .9rem; color: var(--text); line-height: 1.75; }
+    .modal-text p + p { margin-top: .75em; }
+    .modal-text ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; margin-top: .4rem; }
+    .modal-text ul li { padding-left: 1.1em; position: relative; font-size: .88rem; line-height: 1.6; }
+    .modal-text ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .8rem; top: .08em; }
+    .modal-img { width: 100%; border-radius: 4px; margin: 1rem 0; border: 1px solid var(--border); }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1.2rem; }
+    @media (max-width: 600px) { .modal-body { padding: 1.2rem 1.2rem 1.5rem; } .modal-title { font-size: 1.15rem; } }
+  </style>
 </head>
 <body>
 
@@ -27,7 +73,6 @@
   <p class="sec-label">Work</p>
   <h1 class="sec-title">Portfolio</h1>
 
-  <!-- LEGEND -->
   <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:-1rem;margin-bottom:2.2rem;">
     <span style="font-size:.77rem;font-weight:600;color:#4a7cbb;letter-spacing:.05em;">■ HCI &amp; Accessibility</span>
     <span style="font-size:.77rem;font-weight:600;color:#7b5ea7;letter-spacing:.05em;">■ Computer Vision &amp; ML</span>
@@ -35,28 +80,31 @@
     <span style="font-size:.77rem;font-weight:600;color:var(--accent);letter-spacing:.05em;">■ Systems &amp; Tools</span>
   </div>
 
-  <!-- HCI SECTION -->
+  <!-- ── HCI SECTION (unchanged) ── -->
   <div class="sec-divider">HCI &amp; Accessibility</div>
   <div class="portfolio-grid">
 
-    <div class="proj-card">
-      <div class="proj-card-top hci">
-        <p class="proj-cat hci">HCI · Accessibility</p>
-        <h2 class="proj-title">Wheeler</h2>
-        <p class="proj-desc">A three-wheeled input device for blind and low-vision (BLV) users with two navigation modes: hierarchical UI/menu traversal and 2D mouse-like navigation. Achieved a <strong>40% reduction</strong> in app hierarchy traversal time in user studies.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Hardware</span>
-          <span class="proj-tag">Accessibility</span>
-          <span class="proj-tag">BLV</span>
-          <span class="proj-tag">Interaction Design</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge award">🏆 Best Paper HM · UIST'24</span>
-        <a class="pub-link" href="https://arxiv.org/abs/2408.13166" target="_blank">Paper</a>
-        <a class="pub-link" href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">Video</a>
-      </div>
+  <!-- WHEELER CARD -->
+  <div class="port-card" onclick="openModal('wheeler')">
+    <img class="port-card-img"
+        src="assets/wheeler-promo.png"
+        alt="Wheeler device"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="port-card-img-placeholder" style="display:none;">Wheeler</div>
+
+    <div class="port-card-body">
+      <p class="port-card-cat">HCI · Accessibility · Input Devices</p>
+      <h2 class="port-card-title">Wheeler</h2>
+      <p class="port-card-desc">
+        A mouse-shaped input device with three independently rotatable wheels for non-visual GUI navigation. Wheeler supports both hierarchical navigation and 2D navigation, helping blind users move through complex interfaces more efficiently.
+      </p>
     </div>
+
+    <div class="port-card-footer">
+      <span class="proj-badge award">🏆 Best Paper HM · UIST'24</span>
+      <span class="port-card-hint">Click to explore ↗</span>
+    </div>
+  </div>
 
     <div class="proj-card">
       <div class="proj-card-top hci">
@@ -72,7 +120,7 @@
       </div>
       <div class="proj-card-footer">
         <span class="proj-badge award">ASSETS'24</span>
-        <a class="pub-link" href="https://arxiv.org/abs/2408.13175" target="_blank">Paper</a>
+        <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3663548.3688538" target="_blank">Paper</a>
         <a class="pub-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank">
           <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
@@ -145,31 +193,31 @@
 
   </div><!-- end hci grid -->
 
-  <!-- CV / ML SECTION -->
+  <!-- ── CV / ML SECTION ── -->
   <div class="sec-divider" style="margin-top:2.5rem;">Computer Vision &amp; Machine Learning</div>
   <div class="portfolio-grid">
 
-    <div class="proj-card">
-      <div class="proj-card-top cv">
-        <p class="proj-cat cv">Computer Vision · VLMs · Evaluation</p>
-        <h2 class="proj-title">IKIWISI</h2>
-        <p class="proj-desc">Interactive visual pattern generator for evaluating vision-language model reliability <em>without ground truth</em>. Uses heatmap visualizations to surface inconsistencies and object-tracking failures, supporting scalable VLM debugging.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">VLM</span>
-          <span class="proj-tag">Evaluation</span>
-          <span class="proj-tag">Heatmaps</span>
-          <span class="proj-tag">Interactive</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge award">🏆 Best Paper HM · DIS'25</span>
-        <a class="pub-link" href="https://programs.sigchi.org/dis/2025/program/content/200726" target="_blank">Paper</a>
-        <a class="pub-link" href="https://github.com/Shohan29531/IKIWISI" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
+    <!-- IKIWISI — image card with modal -->
+  <div class="port-card" onclick="openModal('ikiwisi')">
+    <img class="port-card-img"
+        src="assets/ikiwisi-patterns.png  "
+        alt="IKIWISI interface"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="port-card-img-placeholder" style="display:none;">IKIWISI</div>
+
+    <div class="port-card-body">
+      <p class="port-card-cat">Computer Vision · VLMs · Evaluation</p>
+      <h2 class="port-card-title">IKIWISI</h2>
+      <p class="port-card-desc">
+        Interactive heatmap-based tool for evaluating vision-language model reliability without ground truth — surfaces inconsistencies and object-tracking failures across video frames.
+      </p>
     </div>
+
+    <div class="port-card-footer">
+      <span class="proj-badge award">🏆 Best Paper HM · DIS'25</span>
+      <span class="port-card-hint">Click to explore ↗</span>
+    </div>
+  </div>
 
     <div class="proj-card">
       <div class="proj-card-top cv">
@@ -227,7 +275,7 @@
 
   </div><!-- end cv grid -->
 
-  <!-- LLM SECTION -->
+  <!-- ── LLM SECTION (unchanged) ── -->
   <div class="sec-divider" style="margin-top:2.5rem;">LLMs &amp; Agentic AI</div>
   <div class="portfolio-grid">
 
@@ -277,6 +325,166 @@
 
 </div><!-- end wide-wrap -->
 
+
+<!-- ── IKIWISI MODAL ── -->
+<div class="modal-overlay" id="modal-ikiwisi" onclick="closeModalOnOverlay(event,'ikiwisi')">
+  <div class="modal">
+<div class="modal-header modal-header-noimage">
+  <button class="modal-close" onclick="closeModal('ikiwisi')">✕</button>
+</div>
+    <div class="modal-body">
+      <p class="modal-cat">Computer Vision · Vision-Language Models · Evaluation</p>
+      <h2 class="modal-title">IKIWISI: Visual Debugging for Large Multi-Modal Model Inconsistencies</h2>
+      <div class="modal-links">
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">🏆 Best Paper Honorable Mention · DIS'25</span>
+        <a class="pub-link" href="https://dl.acm.org/doi/full/10.1145/3715336.3735754" target="_blank">ACM DL</a>
+        <a class="pub-link" href="https://github.com/Shohan29531/IKIWISI" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="modal-tags">
+        <span class="proj-tag">PyTorch</span><span class="proj-tag">Dash</span>
+        <span class="proj-tag">Plotly</span><span class="proj-tag">numpy</span>
+        <span class="proj-tag">RStudio</span><span class="proj-tag">SPSS</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/ikiwisi-promo.png"
+           alt="IKIWISI heatmap patterns" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>Large multimodal models (LMMs) like GPT-4V can process text, images, and video — but unlike humans, their outputs often lack common sense and can be inconsistent across modalities. In multi-label video object recognition, a model might identify an object in one frame but miss it in the next, even when frames are nearly identical.</p>
+        <p>Automated metrics like F1 or average precision cannot capture such inconsistencies, making human evaluation essential. But there was no simple tool that let non-experts assess whether a model was actually performing reliably.</p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/ikiwisi-patterns.png"
+           alt="IKIWISI heatmap patterns" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>IKIWISI (I-Know-It-When-I-See-It) is a lightweight, intuitive tool that visualizes LMM prediction inconsistencies across video frames via binary heatmaps:</p>
+        <ul>
+          <li>The user selects objects of interest and a video from dropdowns.</li>
+          <li>Up to 16 keyframes are displayed in an image container for inspection.</li>
+          <li>A binary heatmap represents model predictions — each row is an object, each column a video frame.</li>
+          <li>High-level patterns in the heatmap let users quickly judge model reliability without any ML expertise.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>In a user study with 15 participants, the heatmap visualization enabled identification of subtle inconsistencies — models flipping answers across turns or hallucinating details.</li>
+          <li>Participants' ratings of model performance correlated strongly with actual F1 scores.</li>
+          <li>Users inspected only a tiny fraction of frames to judge a model, thanks to high-level heatmap patterns.</li>
+          <li>Even non-technical users could identify inconsistency patterns and contribute to model assessment workflows.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>IKIWISI is among the first tools to enable intuitive inconsistency diagnosis across LMM outputs without requiring code or model access. It supports faster and more inclusive evaluation workflows for researchers, QA teams, and designers, and can be integrated into model audit pipelines and prompt refinement tools.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHEELER MODAL -->
+<div class="modal-overlay" id="modal-wheeler" onclick="closeModalOnOverlay(event,'wheeler')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('wheeler')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">HCI · Accessibility · Assistive Technology</p>
+      <h2 class="modal-title">Wheeler: Multi-Wheel Input for Non-Visual Navigation</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
+          🏆 Best Paper Honorable Mention · UIST'24
+        </span>
+        <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3654777.3676396" target="_blank">Paper</a>
+        <a class="pub-link" href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">Promo</a>
+        <a class="pub-link" href="https://www.youtube.com/watch?v=iUMU6dKf3NM" target="_blank">Presentation</a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">Hardware</span>
+        <span class="proj-tag">Blind Users</span>
+        <span class="proj-tag">Input Device</span>
+        <span class="proj-tag">GUI Navigation</span>
+        <span class="proj-tag">Arduino Pro Micro</span>
+        <span class="proj-tag">C#</span>
+        <span class="proj-tag">C++</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/wheeler-overview.png"
+           alt="Wheeler device overview" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          Blind users often face major challenges when navigating modern graphical user interfaces, especially when interface elements are deeply nested, unlabeled, or visually grouped without accessible structure.
+        </p>
+        <p>
+          Traditional screen readers and keyboard shortcuts are often linear and slow, making it difficult to work efficiently in complex software or perform tasks such as remote technical support. These barriers can increase reliance on sighted assistance and reduce digital autonomy.
+        </p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/wheeler-nav-1.png"
+           alt="Wheeler Hierarchical Navigation Mode" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          Wheeler is a mouse-shaped device with <strong>three independently rotatable wheels</strong>, where each wheel controls a different axis or level of navigation.
+        </p>
+        <ul>
+          <li><strong>H-Nav Mode:</strong> supports hierarchical navigation through app structure, such as window → panel → element.</li>
+          <li><strong>2D-Nav Mode:</strong> supports spatial navigation, where two wheels control horizontal and vertical cursor movement and the third wheel controls cursor speed.</li>
+          <li>The device uses rotary encoders along with haptic and audio feedback.</li>
+          <li>It was iteratively co-designed with blind users through participatory design sessions.</li>
+        </ul>
+      </div>
+
+      <img class="modal-img"
+           src="assets/wheeler-nav-2.png"
+           alt="Wheeler 2D Navigation Mode" />
+
+      <p class="modal-section-title">Evaluation</p>
+      <div class="modal-text">
+        <ul>
+          <li>Two controlled lab studies with 12 blind participants.</li>
+          <li>A 6-month diary study with a blind co-author using Wheeler in real-world scenarios.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li>Reduced navigation time by up to <strong>40%</strong> in hierarchical tasks compared to screen reader + keyboard interaction.</li>
+          <li>Helped users access unlabeled or hidden UI elements such as sliders, tooltips, and aria-hidden items.</li>
+          <li>Showed real-world utility in productivity tasks, web browsing, and remote collaboration.</li>
+          <li>Users reported improved agency, lower frustration, and quick learnability.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          Wheeler introduces a new rotary, parallel input paradigm for non-visual interaction. It enables faster and more structured access to complex application hierarchies, supports interaction with otherwise inaccessible interface components, and offers a low-cost augmentative tool that works alongside screen readers.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   &copy; 2025 Md Touhidul Islam &nbsp;·&nbsp;
   <a href="https://github.com/Shohan29531" target="_blank">GitHub</a> &nbsp;·&nbsp;
@@ -287,6 +495,25 @@
 <script>
   document.getElementById('navToggle').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
+  });
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e, id) {
+    if (e.target === e.currentTarget) closeModal(id);
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(el => {
+        el.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
   });
 </script>
 </body>

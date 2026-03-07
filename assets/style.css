@@ -196,7 +196,7 @@ nav {
 .news-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
 .news-item {
   display: grid; grid-template-columns: 105px 1fr;
-  gap: 1rem; font-size: .8rem;
+  gap: 1rem; font-size: .85rem;
   padding: .65rem 1rem;
   background: var(--surface);
   border-radius: var(--radius);
@@ -386,8 +386,8 @@ footer a:hover { color: var(--accent-warm); text-decoration: none; }
   .exp-date, .edu-year { text-align: left; }
 }
 
-@media (max-width: 1024px) {
-  div[style*="grid-template-columns:1fr 680px"] {
+@media (max-width: 900px) {
+  div[style*="grid-template-columns:1fr 340px"] {
     grid-template-columns: 1fr !important;
   }
   aside[style*="border-left"] {
@@ -398,4 +398,9 @@ footer a:hover { color: var(--accent-warm); text-decoration: none; }
     position: static !important;
     max-height: none !important;
   }
+}
+
+.modal-header-noimage {
+  position: relative;
+  min-height: 16px;
 }
