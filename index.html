@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Touhidul Islam</title>
-  <meta name="description" content="Touhidul Islam — Ph.D. candidate in Informatics at Penn State, working in HCI, accessibility, and applied multimodal AI.">
+  <meta name="description" content="Touhidul Islam — Ph.D. candidate in Informatics at Penn State, working on accessibility, HCI, and applied AI systems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,224 +13,167 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top">Touhidul Islam</a>
+      <a href="#top" class="brand">Touhidul Islam</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#news">News</a>
-        <a href="#work">Work</a>
+        <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <aside class="profile-card">
-          <img src="assets/placeholders/profile-placeholder.svg" alt="Placeholder for profile photo" class="profile-image">
-          <p class="helper-text">Replace this with your headshot: <code>assets/placeholders/profile-placeholder.svg</code></p>
-
-          <div class="profile-block">
-            <h1>Touhidul Islam</h1>
-            <p class="role">Ph.D. Candidate in Informatics · Penn State</p>
-          </div>
-
-          <div class="chip-row" aria-label="Research areas">
-            <span class="chip">HCI</span>
-            <span class="chip">Accessibility</span>
-            <span class="chip">Computer Vision</span>
-            <span class="chip">Applied ML</span>
-          </div>
-
-          <div class="quick-links">
-            <a href="mailto:touhidul.shohan@gmail.com">Personal Email</a>
-            <a href="mailto:touhid@psu.edu">Penn State Email</a>
-            <a href="https://github.com/Shohan29531" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="#" aria-label="Replace with LinkedIn URL">LinkedIn Placeholder</a>
-            <a href="#" aria-label="Replace with CV URL">CV Placeholder</a>
-          </div>
-
-          <div class="contact-card">
-            <h2>Contact</h2>
-            <dl>
-              <div>
-                <dt>Email</dt>
-                <dd>touhidul.shohan@gmail.com</dd>
-              </div>
-              <div>
-                <dt>Email</dt>
-                <dd>touhid@psu.edu</dd>
-              </div>
-              <div>
-                <dt>Phone</dt>
-                <dd>+1 814 (Eight-Five-Two) 9392</dd>
-              </div>
-            </dl>
-          </div>
-        </aside>
-
-        <div class="hero-content">
-          <section id="about" class="content-card intro-card">
-            <p class="eyebrow">About</p>
-            <h2>Designing intelligent systems that make digital interaction more usable and inclusive.</h2>
-            <p>
-              I am a fourth-year Ph.D. candidate in Informatics at Penn State University's College of Information Sciences and Technology (IST). I work under the supervision of Dr. Syed Billah at the a11y lab. I hold a Bachelor’s degree in Computer Science and Engineering from the Bangladesh University of Engineering and Technology (2017) and a Master’s in Informatics from Penn State (2024).
-            </p>
-            <p>
-              My current research focuses on enhancing user experience through agentic, mostly automated workflows powered by large multimodal models (LMMs) and retrieval-augmented generation (RAG) tools. These workflows aim to reduce the cognitive and physical demands of digital interaction by enabling intelligent agents to perceive, reason, and act on behalf of users.
-            </p>
-            <p>
-              This direction builds on my earlier Ph.D. work addressing system- and application-level UX challenges in desktop and mobile platforms. I developed models and tools to improve non-visual and low-vision accessibility, grounded in participatory design and empirical evaluation.
-            </p>
-            <p>
-              My first-author publications have appeared at CHI, IMWUT, DIS, ASSETS, and UIST, including a Best Paper Honorable Mention at UIST 2024.
-            </p>
-          </section>
-
-          <section class="content-card summary-card">
-            <div>
-              <p class="eyebrow">Focus</p>
-              <h3>Current research direction</h3>
-              <p>
-                My recent projects bridge human-centered design with AI. I study how multimodal systems can support interface understanding, reliability analysis, accessibility APIs, and assistive workflows that help people navigate digital environments with less friction.
-              </p>
-            </div>
-            <div>
-              <p class="eyebrow">Highlights</p>
-              <ul class="clean-list">
-                <li>Ph.D. candidate in Informatics at Penn State</li>
-                <li>Research spanning accessibility, HCI, and applied multimodal AI</li>
-                <li>First-author work at CHI, DIS, ASSETS, IMWUT, and UIST</li>
-                <li>Best Paper Honorable Mention at UIST 2024</li>
-              </ul>
-            </div>
-          </section>
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Accessibility · HCI · Applied AI</p>
+        <h1>Designing intelligent systems that make digital experiences more usable.</h1>
+        <p class="hero-text">I am a fourth-year Ph.D. candidate in Informatics at Penn State. My work sits at the intersection of accessibility, multimodal AI, and human-centered system design.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#portfolio">View Projects</a>
+          <a class="button button-secondary" href="#contact">Get in Touch</a>
         </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="touhid.jpg" alt="Placeholder portrait for Touhidul Islam" class="hero-image">
       </div>
     </section>
 
-    <section id="news" class="section-block">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Updates</p>
+    <section class="container main-grid">
+      <aside class="panel profile-panel" id="contact">
+        <img src="touhid.jpg" alt="Placeholder portrait for Touhidul Islam" class="profile-pic">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <p><span>Email</span><br>touhidul.shohan@gmail.com</p>
+          <p><span>Email</span><br>touhid@psu.edu</p>
+          <p><span>Phone</span><br>+1 814 (Eight-Five-Two) 9392</p>
+          <p><span>CV</span><br><a href="#">Add your CV link here</a></p>
+        </div>
+        <div class="link-pills">
+          <a href="#">GitHub</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Google Scholar</a>
+        </div>
+        <p class="small-note">Replace the portrait and project placeholders with your own images later.</p>
+      </aside>
+
+      <section class="panel content-panel" id="about">
+        <h2>About Me</h2>
+        <p>I am a fourth-year Ph.D. candidate in Informatics at Penn State University's College of Information Sciences and Technology (IST). I am working under the supervision of Dr. Syed Billah at the a11y lab. I hold a Bachelor’s degree in Computer Science and Engineering from the Bangladesh University of Engineering and Technology (2017) and a Master’s in Informatics from Penn State (2024).</p>
+
+        <p>My current research focuses on enhancing user experience through agentic, mostly automated workflows powered by large multi-modal models (LMMs) and retrieval-augmented generation (RAG) tools. These workflows aim to reduce the cognitive and physical demands of digital interaction by enabling intelligent agents to perceive, reason, and act on behalf of users, helping them complete complex tasks more easily and intuitively.</p>
+
+        <p>This direction builds upon my early Ph.D. work addressing system- and application-level UX challenges in desktop and mobile platforms. I developed a probabilistic model to capture perceived accessibility in non-visual interactions and introduced three actionable metrics to help developers improve desktop usability. I also designed a custom three-wheeled input device that allowed blind users to navigate UI menus more efficiently, and a screen-space compactor to help low-vision users interact with dense visual layouts. Both tools were grounded in participatory design and evaluated through empirical studies. My first-author research publications have been accepted at top-tier HCI conferences, including CHI, IMWUT, DIS, ASSETS, and UIST, with a Best Paper Honorable Mention at UIST 2024.</p>
+
+        <p>My later projects have focused on bridging human-centered design with advances in AI. I created an interactive visualization tool for evaluating the reliability of vision-language models without ground truth, introduced a novel temporal consistency metric for video object recognition models, and developed an accessibility API for 3D/VR environments, along with a reference implementation for the Unity platform.</p>
+
+        <p>Together, these efforts reflect a broader research agenda: to design intelligent systems that respond to the diverse ways people interact with technology. By embedding inclusive design principles at the core of AI-powered interfaces, my work reimagines how digital systems can become more capable and meaningfully more usable for everyone.</p>
+      </section>
+
+      <aside class="panel news-panel" id="news">
+        <div class="panel-header">
           <h2>News</h2>
+          <span class="tag">Recent updates</span>
         </div>
-        <div class="news-list">
-          <article class="news-item featured-news">
-            <span class="news-date">April 2025</span>
-            <p>Our paper <em>IKIWISI</em> was accepted at <strong>DIS'25</strong>.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">November 2024</span>
-            <p><strong>On the job market</strong> — open to Summer 2025 internships and full-time industry research positions.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">October 2024</span>
-            <p>Wheeler received an <strong>Honorable Mention for Best Paper</strong> at UIST'24.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">August 2024</span>
-            <p>Paper on blind navigation accepted at ASSETS'24.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">June 2024</span>
-            <p>Wheeler paper accepted at UIST'24.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">May 2024</span>
-            <p>Passed the Ph.D. comprehensive exam.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">January 2023</span>
-            <p>Paper on perceived accessibility accepted at CHI'23.</p>
-          </article>
-          <article class="news-item">
-            <span class="news-date">January 2021</span>
-            <p>Started the Ph.D. at Penn State.</p>
-          </article>
-        </div>
-      </div>
+        <ul class="news">
+          <li><strong>April 2025</strong> Our paper <em>"IKIWISI"</em> accepted at <strong>DIS'25</strong>.</li>
+          <li><strong>November 2024</strong> <span class="highlight">I am on the job market</span> — open to Summer'25 internships or full-time industry research positions.</li>
+          <li><strong>November 2024</strong> Received Graduate Student Travel grant (IST, Penn State) to attend UIST'24 in Pittsburgh, USA (~1500 USD).</li>
+          <li><strong>October 2024</strong> Attended UIST'24 in Pittsburgh, USA.</li>
+          <li><strong>October 2024</strong> Wheeler's <a href="#">promo</a> is available on the SIGCHI YouTube channel.</li>
+          <li><strong>October 2024</strong> Wheeler paper received an <strong>Honorable Mention for Best Paper</strong> at UIST'24.</li>
+          <li><strong>August 2024</strong> Paper on blind navigation accepted at ASSETS'24. <a href="#">[link]</a></li>
+          <li><strong>August 2024</strong> Wheeler demo accepted at UIST'24 Adjunct. <a href="#">[link]</a></li>
+          <li><strong>June 2024</strong> Wheeler paper accepted at UIST'24. <a href="#">[link]</a></li>
+          <li><strong>May 2024</strong> Passed Ph.D. Comprehensive Exam.</li>
+          <li><strong>February 2024</strong> Got my Master’s in Informatics.</li>
+          <li><strong>October 2023</strong> Attended Ubicomp/ISWC'23 in Cancun, Mexico.</li>
+          <li><strong>September 2023</strong> IST travel grant for Ubicomp'23 (~3000 USD).</li>
+          <li><strong>April 2023</strong> Attended CHI'23 in Hamburg, Germany.</li>
+          <li><strong>April 2023</strong> SpaceXMag paper accepted at IMWUT'23. <a href="#">[link]</a></li>
+          <li><strong>February 2023</strong> IST travel grant for CHI'23 (~4000 USD).</li>
+          <li><strong>January 2023</strong> Paper on perceived accessibility accepted at CHI'23. <a href="#">[link]</a></li>
+          <li><strong>November 2022</strong> Received Bangladesh-Sweden Trust Fund travel grant.</li>
+          <li><strong>May 2022</strong> Passed Ph.D. Qualifying Exam.</li>
+          <li><strong>April 2021</strong> Paper on screen reader plugins accepted at ASSETS'21. <a href="#">[link]</a></li>
+          <li><strong>January 2021</strong> Started Ph.D. at Penn State.</li>
+          <li><strong>April 2020</strong> Blockchain paper accepted at ICBC'20. <a href="#">[link]</a></li>
+        </ul>
+      </aside>
     </section>
 
-    <section id="work" class="section-block">
-      <div class="container">
-        <div class="section-heading">
+    <section class="container portfolio-section" id="portfolio">
+      <div class="section-heading">
+        <div>
           <p class="eyebrow">Selected Work</p>
           <h2>Portfolio</h2>
-          <p class="section-note">Each card includes a placeholder image file you can replace later.</p>
         </div>
-
-        <div class="portfolio-grid">
-          <article class="work-card">
-            <img src="assets/placeholders/project-1.svg" alt="Placeholder for project 1 image">
-            <div class="work-card-body">
-              <h3>Leveling the Playing Field</h3>
-              <p>Public presentation and research communication material.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-1.svg</code></p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="assets/placeholders/project-2.svg" alt="Placeholder for project 2 image">
-            <div class="work-card-body">
-              <h3>Surveyor</h3>
-              <p>Exploration support tool for blind and low-vision users.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-2.svg</code></p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="assets/placeholders/project-3.svg" alt="Placeholder for project 3 image">
-            <div class="work-card-body">
-              <h3>ImageAssist</h3>
-              <p>Touchscreen image exploration support for BLV users.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-3.svg</code></p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="assets/placeholders/project-4.svg" alt="Placeholder for project 4 image">
-            <div class="work-card-body">
-              <h3>Spatial Awareness Tools</h3>
-              <p>Research on gamer preferences for non-visual navigation.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-4.svg</code></p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="assets/placeholders/project-5.svg" alt="Placeholder for project 5 image">
-            <div class="work-card-body">
-              <h3>NavStick</h3>
-              <p>Look-based blind navigation approach for games.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-5.svg</code></p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="assets/placeholders/project-6.svg" alt="Placeholder for project 6 image">
-            <div class="work-card-body">
-              <h3>ASSIST</h3>
-              <p>Assistive sensor system for indoor travel and navigation.</p>
-              <p class="helper-text">Replace: <code>assets/placeholders/project-6.svg</code></p>
-            </div>
-          </article>
-        </div>
+        <p class="section-intro">A curated set of projects, papers, and research directions. Each card includes a placeholder image so you can later swap in the right visual.</p>
       </div>
-    </section>
 
-    <section id="contact" class="section-block contact-section">
-      <div class="container contact-grid">
-        <div class="content-card">
-          <p class="eyebrow">Get in touch</p>
-          <h2>Contact</h2>
-          <p>For collaboration, research, or internship and full-time opportunities, feel free to reach out.</p>
-        </div>
-        <div class="content-card contact-actions">
-          <a class="button" href="mailto:touhid@psu.edu">Email Penn State</a>
-          <a class="button button-secondary" href="mailto:touhidul.shohan@gmail.com">Email Personal</a>
-        </div>
+      <div class="portfolio-grid">
+        <a href="project1.html" class="card">
+          <img src="project1.jpg" alt="Placeholder image for Leveling the Playing Field">
+          <div class="caption">
+            <strong>Leveling the Playing Field</strong>
+            <span>Public Presentation · June 2024</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
+
+        <a href="project2.html" class="card">
+          <img src="project2.jpg" alt="Placeholder image for Surveyor">
+          <div class="caption">
+            <strong>Surveyor</strong>
+            <span>Exploration tool for blind and low-vision users</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
+
+        <a href="project3.html" class="card">
+          <img src="project3.jpg" alt="Placeholder image for ImageAssist">
+          <div class="caption">
+            <strong>ImageAssist</strong>
+            <span>Touchscreen image exploration for BLV users</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
+
+        <a href="project4.html" class="card">
+          <img src="project4.jpg" alt="Placeholder image for Spatial Awareness Tools">
+          <div class="caption">
+            <strong>Spatial Awareness Tools</strong>
+            <span>Gamer preferences for non-visual navigation</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
+
+        <a href="project5.html" class="card">
+          <img src="project5.jpg" alt="Placeholder image for NavStick">
+          <div class="caption">
+            <strong>NavStick</strong>
+            <span>Look-based blind navigation in games</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
+
+        <a href="project6.html" class="card">
+          <img src="project6.jpg" alt="Placeholder image for ASSIST">
+          <div class="caption">
+            <strong>ASSIST</strong>
+            <span>Assistive sensor system for indoor travel</span>
+            <span class="card-link">Open project →</span>
+          </div>
+        </a>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© Touhidul Islam</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
 </body>
 </html>
