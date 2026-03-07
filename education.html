@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education · Md Touhidul Islam</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">Md Touhidul Islam</a>
+  <div class="links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="education.html" class="active">Education</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-wrap">
+
+  <h1 class="section-title" style="font-family:'Lora',serif;font-size:1.8rem;text-transform:none;letter-spacing:0;margin-bottom:2rem;">Education</h1>
+
+  <div class="edu-entry">
+    <div class="edu-year">2021–Present</div>
+    <div>
+      <p class="edu-degree">Ph.D. in Informatics <span style="font-weight:300;font-size:.9rem;">(In Progress)</span></p>
+      <p class="edu-school">Pennsylvania State University, College of IST</p>
+      <p style="font-size:.85rem;color:var(--text-muted);margin-top:.5rem;">Advisor: <a href="https://ist.psu.edu/directory/skb5969" target="_blank" style="color:var(--accent);">Dr. Syed Billah</a> · <a href="https://a11y.ist.psu.edu/" target="_blank" style="color:var(--accent);">a11y lab</a></p>
+      <p style="font-size:.85rem;margin-top:.4rem;">Research: Generative AI for HCI; RAG &amp; PEFT for LLM adaptation; accessibility &amp; interaction design.</p>
+    </div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-year">2024</div>
+    <div>
+      <p class="edu-degree">M.S. in Informatics</p>
+      <p class="edu-school">Pennsylvania State University, College of IST</p>
+    </div>
+  </div>
+
+  <div class="edu-entry">
+    <div class="edu-year">2017</div>
+    <div>
+      <p class="edu-degree">B.Sc. in Computer Science &amp; Engineering</p>
+      <p class="edu-school">Bangladesh University of Engineering and Technology (BUET)</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Md Touhidul Islam &mdash; Built with GitHub Pages
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

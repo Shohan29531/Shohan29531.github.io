@@ -1,179 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Touhidul Islam</title>
-  <meta name="description" content="Touhidul Islam — Ph.D. candidate in Informatics at Penn State, working on accessibility, HCI, and applied AI systems.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Touhidul Islam</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">Touhidul Islam</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#news">News</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<nav>
+  <a class="brand" href="index.html">Md Touhidul Islam</a>
+  <div class="links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="education.html">Education</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Replace the src below with your own photo file, e.g. assets/photo.jpg -->
+    <img class="hero-photo"
+         src="assets/photo.jpg"
+         alt="Md Touhidul Islam"
+         onerror="this.style.display='none';document.getElementById('photo-placeholder').style.display='flex';" />
+    <div class="hero-photo-placeholder" id="photo-placeholder" style="display:none;">
+      Replace with<br/>assets/photo.jpg
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero container">
-      <div class="hero-copy">
-        <p class="eyebrow">Accessibility · HCI · Applied AI</p>
-        <h1>Designing intelligent systems that make digital experiences more usable.</h1>
-        <p class="hero-text">I am a fourth-year Ph.D. candidate in Informatics at Penn State. My work sits at the intersection of accessibility, multimodal AI, and human-centered system design.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#portfolio">View Projects</a>
-          <a class="button button-secondary" href="#contact">Get in Touch</a>
-        </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img src="touhid.jpg" alt="Placeholder portrait for Touhidul Islam" class="hero-image">
-      </div>
-    </section>
+    <div>
+      <h1 class="hero-name">Md Touhidul Islam</h1>
+      <p class="hero-title">Ph.D. Candidate · Informatics · Penn State University</p>
 
-    <section class="container main-grid">
-      <aside class="panel profile-panel" id="contact">
-        <img src="touhid.jpg" alt="Placeholder portrait for Touhidul Islam" class="profile-pic">
-        <h2>Contact</h2>
-        <div class="contact-list">
-          <p><span>Email</span><br>touhidul.shohan@gmail.com</p>
-          <p><span>Email</span><br>touhid@psu.edu</p>
-          <p><span>Phone</span><br>+1 814 (Eight-Five-Two) 9392</p>
-          <p><span>CV</span><br><a href="#">Add your CV link here</a></p>
-        </div>
-        <div class="link-pills">
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Google Scholar</a>
-        </div>
-        <p class="small-note">Replace the portrait and project placeholders with your own images later.</p>
-      </aside>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> <a href="mailto:touhidul.shohan@gmail.com">touhidul.shohan@gmail.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:touhid@psu.edu">touhid@psu.edu</a></li>
+        <li><strong>Phone:</strong> +1 814-852-9392</li>
+        <li><strong>CV:</strong> <a href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing" target="_blank">Download PDF</a></li>
+      </ul>
 
-      <section class="panel content-panel" id="about">
-        <h2>About Me</h2>
-        <p>I am a fourth-year Ph.D. candidate in Informatics at Penn State University's College of Information Sciences and Technology (IST). I am working under the supervision of Dr. Syed Billah at the a11y lab. I hold a Bachelor’s degree in Computer Science and Engineering from the Bangladesh University of Engineering and Technology (2017) and a Master’s in Informatics from Penn State (2024).</p>
-
-        <p>My current research focuses on enhancing user experience through agentic, mostly automated workflows powered by large multi-modal models (LMMs) and retrieval-augmented generation (RAG) tools. These workflows aim to reduce the cognitive and physical demands of digital interaction by enabling intelligent agents to perceive, reason, and act on behalf of users, helping them complete complex tasks more easily and intuitively.</p>
-
-        <p>This direction builds upon my early Ph.D. work addressing system- and application-level UX challenges in desktop and mobile platforms. I developed a probabilistic model to capture perceived accessibility in non-visual interactions and introduced three actionable metrics to help developers improve desktop usability. I also designed a custom three-wheeled input device that allowed blind users to navigate UI menus more efficiently, and a screen-space compactor to help low-vision users interact with dense visual layouts. Both tools were grounded in participatory design and evaluated through empirical studies. My first-author research publications have been accepted at top-tier HCI conferences, including CHI, IMWUT, DIS, ASSETS, and UIST, with a Best Paper Honorable Mention at UIST 2024.</p>
-
-        <p>My later projects have focused on bridging human-centered design with advances in AI. I created an interactive visualization tool for evaluating the reliability of vision-language models without ground truth, introduced a novel temporal consistency metric for video object recognition models, and developed an accessibility API for 3D/VR environments, along with a reference implementation for the Unity platform.</p>
-
-        <p>Together, these efforts reflect a broader research agenda: to design intelligent systems that respond to the diverse ways people interact with technology. By embedding inclusive design principles at the core of AI-powered interfaces, my work reimagines how digital systems can become more capable and meaningfully more usable for everyone.</p>
-      </section>
-
-      <aside class="panel news-panel" id="news">
-        <div class="panel-header">
-          <h2>News</h2>
-          <span class="tag">Recent updates</span>
-        </div>
-        <ul class="news">
-          <li><strong>April 2025</strong> Our paper <em>"IKIWISI"</em> accepted at <strong>DIS'25</strong>.</li>
-          <li><strong>November 2024</strong> <span class="highlight">I am on the job market</span> — open to Summer'25 internships or full-time industry research positions.</li>
-          <li><strong>November 2024</strong> Received Graduate Student Travel grant (IST, Penn State) to attend UIST'24 in Pittsburgh, USA (~1500 USD).</li>
-          <li><strong>October 2024</strong> Attended UIST'24 in Pittsburgh, USA.</li>
-          <li><strong>October 2024</strong> Wheeler's <a href="#">promo</a> is available on the SIGCHI YouTube channel.</li>
-          <li><strong>October 2024</strong> Wheeler paper received an <strong>Honorable Mention for Best Paper</strong> at UIST'24.</li>
-          <li><strong>August 2024</strong> Paper on blind navigation accepted at ASSETS'24. <a href="#">[link]</a></li>
-          <li><strong>August 2024</strong> Wheeler demo accepted at UIST'24 Adjunct. <a href="#">[link]</a></li>
-          <li><strong>June 2024</strong> Wheeler paper accepted at UIST'24. <a href="#">[link]</a></li>
-          <li><strong>May 2024</strong> Passed Ph.D. Comprehensive Exam.</li>
-          <li><strong>February 2024</strong> Got my Master’s in Informatics.</li>
-          <li><strong>October 2023</strong> Attended Ubicomp/ISWC'23 in Cancun, Mexico.</li>
-          <li><strong>September 2023</strong> IST travel grant for Ubicomp'23 (~3000 USD).</li>
-          <li><strong>April 2023</strong> Attended CHI'23 in Hamburg, Germany.</li>
-          <li><strong>April 2023</strong> SpaceXMag paper accepted at IMWUT'23. <a href="#">[link]</a></li>
-          <li><strong>February 2023</strong> IST travel grant for CHI'23 (~4000 USD).</li>
-          <li><strong>January 2023</strong> Paper on perceived accessibility accepted at CHI'23. <a href="#">[link]</a></li>
-          <li><strong>November 2022</strong> Received Bangladesh-Sweden Trust Fund travel grant.</li>
-          <li><strong>May 2022</strong> Passed Ph.D. Qualifying Exam.</li>
-          <li><strong>April 2021</strong> Paper on screen reader plugins accepted at ASSETS'21. <a href="#">[link]</a></li>
-          <li><strong>January 2021</strong> Started Ph.D. at Penn State.</li>
-          <li><strong>April 2020</strong> Blockchain paper accepted at ICBC'20. <a href="#">[link]</a></li>
-        </ul>
-      </aside>
-    </section>
-
-    <section class="container portfolio-section" id="portfolio">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Selected Work</p>
-          <h2>Portfolio</h2>
-        </div>
-        <p class="section-intro">A curated set of projects, papers, and research directions. Each card includes a placeholder image so you can later swap in the right visual.</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <a href="project1.html" class="card">
-          <img src="project1.jpg" alt="Placeholder image for Leveling the Playing Field">
-          <div class="caption">
-            <strong>Leveling the Playing Field</strong>
-            <span>Public Presentation · June 2024</span>
-            <span class="card-link">Open project →</span>
-          </div>
+      <div class="social-links">
+        <a class="social-btn" href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/></svg>
+          LinkedIn
         </a>
-
-        <a href="project2.html" class="card">
-          <img src="project2.jpg" alt="Placeholder image for Surveyor">
-          <div class="caption">
-            <strong>Surveyor</strong>
-            <span>Exploration tool for blind and low-vision users</span>
-            <span class="card-link">Open project →</span>
-          </div>
+        <a class="social-btn" href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
         </a>
-
-        <a href="project3.html" class="card">
-          <img src="project3.jpg" alt="Placeholder image for ImageAssist">
-          <div class="caption">
-            <strong>ImageAssist</strong>
-            <span>Touchscreen image exploration for BLV users</span>
-            <span class="card-link">Open project →</span>
-          </div>
-        </a>
-
-        <a href="project4.html" class="card">
-          <img src="project4.jpg" alt="Placeholder image for Spatial Awareness Tools">
-          <div class="caption">
-            <strong>Spatial Awareness Tools</strong>
-            <span>Gamer preferences for non-visual navigation</span>
-            <span class="card-link">Open project →</span>
-          </div>
-        </a>
-
-        <a href="project5.html" class="card">
-          <img src="project5.jpg" alt="Placeholder image for NavStick">
-          <div class="caption">
-            <strong>NavStick</strong>
-            <span>Look-based blind navigation in games</span>
-            <span class="card-link">Open project →</span>
-          </div>
-        </a>
-
-        <a href="project6.html" class="card">
-          <img src="project6.jpg" alt="Placeholder image for ASSIST">
-          <div class="caption">
-            <strong>ASSIST</strong>
-            <span>Assistive sensor system for indoor travel</span>
-            <span class="card-link">Open project →</span>
-          </div>
+        <a class="social-btn" href="mailto:touhid@psu.edu">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
         </a>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© Touhidul Islam</p>
-      <a href="#top">Back to top</a>
     </div>
-  </footer>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-text">
+      <p>I am a fifth-year Ph.D. candidate in Informatics at Penn State University's College of Information Sciences and Technology (IST). I am working under the supervision of <a href="https://ist.psu.edu/directory/skb5969" target="_blank">Dr. Syed Billah</a> at the <a href="https://a11y.ist.psu.edu/" target="_blank">a11y lab</a>. I hold a Bachelor's degree in Computer Science and Engineering from the Bangladesh University of Engineering and Technology (2017) and a Master's in Informatics from Penn State (2024).</p>
+      <p>My current research focuses on leveraging generative AI to enhance human-computer interaction. More specifically, I use retrieval-augmented generation (RAG) and parameter-efficient fine-tuning (PEFT) methods to fine-tune and enhance LLMs so that they can adapt to the user's needs.</p>
+      <p>This work builds on my earlier contributions to accessibility and interaction design, which include custom input devices, interface adaptations, and probabilistic models of non-visual usability. Grounded in participatory design and user validation, these efforts span desktop, mobile, and VR platforms.</p>
+      <p>My first-author publications have appeared in leading HCI venues including CHI, UIST (<strong>Best Paper Honorable Mention</strong>), ASSETS, IMWUT, and DIS (<strong>Best Paper Honorable Mention</strong>).</p>
+      <div class="banner">
+        🎯 I am on the industry job market, looking for <strong>Applied Science</strong> or <strong>Software Engineering</strong> roles. <a href="mailto:touhidul.shohan@gmail.com">Please contact me</a> if you know about relevant opportunities!
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="section">
+    <h2 class="section-title">News</h2>
+    <ul class="news-list">
+
+      <li class="news-item highlight">
+        <span class="news-date">Nov 2025</span>
+        <span class="news-text">Received Special Recognition for Outstanding Review at CHI'26!</span>
+      </li>
+
+      <li class="news-item highlight">
+        <span class="news-date">July 2025</span>
+        <span class="news-text"><span class="badge">Best Paper HM</span> Our paper "IKIWISI" received an <a href="https://programs.sigchi.org/dis/2025/program/content/200726" target="_blank">Honorable Mention for Best Paper</a> at DIS'25!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">April 2025</span>
+        <span class="news-text">Our paper "IKIWISI: An Interactive Visual Pattern Generator for Evaluating the Reliability of Vision-Language Models Without Ground Truth" accepted at DIS'25!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Nov 2024</span>
+        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend UIST'24 in Pittsburgh, USA! (~$1,500)</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Oct 2024</span>
+        <span class="news-text">Attended UIST'24 in Pittsburgh, USA!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Oct 2024</span>
+        <span class="news-text">Wheeler's <a href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">promo video</a> is available on the SIGCHI YouTube channel!</span>
+      </li>
+
+      <li class="news-item highlight">
+        <span class="news-date">Oct 2024</span>
+        <span class="news-text"><span class="badge">Best Paper HM</span> Our paper "Wheeler: A Three-Wheeled Input Device for Usable, Efficient, and Versatile Non-Visual Interaction" received an <a href="https://uist.acm.org/2024/" target="_blank">Honorable Mention for Best Paper</a> at UIST'24!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Aug 2024</span>
+        <span class="news-text">Our paper "Identifying Crucial Objects in Blind and Low-Vision Individuals' Navigation" accepted at ASSETS'24! <a href="https://arxiv.org/abs/2408.13175" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Aug 2024</span>
+        <span class="news-text">Our demo "Demonstration of Wheeler" accepted at UIST'24 Adjunct! <a href="https://arxiv.org/abs/2408.13173" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">June 2024</span>
+        <span class="news-text">Our paper "Wheeler: A Three-Wheeled Input Device…" accepted at UIST'24! <a href="https://arxiv.org/abs/2408.13166" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">May 2024</span>
+        <span class="news-text">Passed my Ph.D. Comprehensive Exam — officially a Ph.D. candidate now!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Feb 2024</span>
+        <span class="news-text">Earned my Master's in Informatics on the way to a Ph.D.!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Oct 2023</span>
+        <span class="news-text">Attended Ubicomp/ISWC'23 in majestic Cancun, Mexico!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Sep 2023</span>
+        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend Ubicomp'23 in Cancun! (~$3,000)</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">April 2023</span>
+        <span class="news-text">Attended CHI'23 in beautiful Hamburg, Germany!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">April 2023</span>
+        <span class="news-text">Our paper "SpaceXMag" accepted at IMWUT'23! <a href="https://doi.org/10.1145/3596253" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Feb 2023</span>
+        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend CHI'23 in Hamburg! (~$4,000)</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Jan 2023</span>
+        <span class="news-text">Our paper "A Probabilistic Model and Metrics…" accepted at CHI'23! <a href="https://doi.org/10.1145/3544548.3581400" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Nov 2022</span>
+        <span class="news-text">Received travel grant from Bangladesh-Sweden Trust Fund!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">May 2022</span>
+        <span class="news-text">Passed my Qualifying Exam — one more step in the Ph.D. journey!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">April 2021</span>
+        <span class="news-text">Our paper "Understanding Screen Readers' Plugins" accepted at ASSETS'21! <a href="https://doi.org/10.1145/3441852.3471205" target="_blank">[link]</a></span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">Jan 2021</span>
+        <span class="news-text">Started my Ph.D. in Informatics at Pennsylvania State University!</span>
+      </li>
+
+      <li class="news-item">
+        <span class="news-date">April 2020</span>
+        <span class="news-text">Our paper "Reducing Storage Requirement in Blockchain Networks Using Overlapping Data Distribution" accepted at ICBC'20! <a href="https://link.springer.com/chapter/10.1007/978-3-030-59638-5_4" target="_blank">[link]</a></span>
+      </li>
+
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2025 Md Touhidul Islam &mdash; Built with GitHub Pages
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
 </body>
 </html>
