@@ -9,53 +9,63 @@
 <body>
 
 <nav>
-  <a class="brand" href="index.html">Md Touhidul Islam</a>
-  <div class="links" id="navLinks">
+  <a class="nav-brand" href="index.html">Md Touhidul Islam</a>
+  <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="publications.html">Publications</a>
+    <a href="experience.html">Experience</a>
     <a href="education.html" class="active">Education</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="cv.html">CV</a>
   </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="page-wrap">
+  <p class="sec-label">Academic Background</p>
+  <h1 class="sec-title">Education</h1>
 
-  <h1 class="section-title" style="font-family:'Lora',serif;font-size:1.8rem;text-transform:none;letter-spacing:0;margin-bottom:2rem;">Education</h1>
-
-  <div class="edu-entry">
-    <div class="edu-year">2021–Present</div>
+  <div class="edu-card">
     <div>
-      <p class="edu-degree">Ph.D. in Informatics <span style="font-weight:300;font-size:.9rem;">(In Progress)</span></p>
-      <p class="edu-school">Pennsylvania State University, College of IST</p>
-      <p style="font-size:.85rem;color:var(--text-muted);margin-top:.5rem;">Advisor: <a href="https://ist.psu.edu/directory/skb5969" target="_blank" style="color:var(--accent);">Dr. Syed Billah</a> · <a href="https://a11y.ist.psu.edu/" target="_blank" style="color:var(--accent);">a11y lab</a></p>
-      <p style="font-size:.85rem;margin-top:.4rem;">Research: Generative AI for HCI; RAG &amp; PEFT for LLM adaptation; accessibility &amp; interaction design.</p>
+      <p class="edu-degree">Ph.D. in Informatics</p>
+      <p class="edu-school">Pennsylvania State University<br/>College of Information Sciences &amp; Technology (IST)</p>
+      <p class="edu-gpa">GPA: 3.97 / 4.0</p>
+      <p style="font-size:.85rem;color:var(--text-3);margin-top:.5rem;">
+        Advisor: <a href="https://ist.psu.edu/directory/skb5969" target="_blank" style="color:var(--accent);">Dr. Syed Billah</a> &nbsp;·&nbsp;
+        <a href="https://a11y.ist.psu.edu/" target="_blank" style="color:var(--accent);">a11y Lab</a>
+      </p>
+      <p style="font-size:.85rem;margin-top:.4rem;color:var(--text-2);">Research: Generative AI for HCI, accessibility &amp; interaction design, applied ML, computer vision, LLMs (RAG, PEFT).</p>
     </div>
+    <div><p class="edu-year">Jan 2021 –<br/>May 2026<br/><span style="font-size:.72rem;color:var(--accent);">Expected</span></p></div>
   </div>
 
-  <div class="edu-entry">
-    <div class="edu-year">2024</div>
+  <div class="edu-card">
     <div>
-      <p class="edu-degree">M.S. in Informatics</p>
-      <p class="edu-school">Pennsylvania State University, College of IST</p>
+      <p class="edu-degree">M.Sc. in Informatics</p>
+      <p class="edu-school">Pennsylvania State University<br/>College of Information Sciences &amp; Technology (IST)</p>
+      <p class="edu-gpa">GPA: 3.97 / 4.0</p>
     </div>
+    <div><p class="edu-year">Jan 2021 –<br/>Feb 2024</p></div>
   </div>
 
-  <div class="edu-entry">
-    <div class="edu-year">2017</div>
+  <div class="edu-card">
     <div>
       <p class="edu-degree">B.Sc. in Computer Science &amp; Engineering</p>
       <p class="edu-school">Bangladesh University of Engineering and Technology (BUET)</p>
+      <p class="edu-gpa">GPA: 3.91 / 4.0</p>
     </div>
+    <div><p class="edu-year">Feb 2013 –<br/>Sep 2017</p></div>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2025 Md Touhidul Islam &mdash; Built with GitHub Pages
+  &copy; 2025 Md Touhidul Islam &nbsp;·&nbsp;
+  <a href="https://github.com/Shohan29531" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+  <a href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">Google Scholar</a>
 </footer>
 
 <script>
@@ -63,6 +73,5 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 </script>
-
 </body>
 </html>

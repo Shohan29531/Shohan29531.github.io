@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Touhidul Islam</title>
+  <title>Md Touhidul Islam — HCI Researcher & Engineer</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a class="brand" href="index.html">Md Touhidul Islam</a>
-  <div class="links" id="navLinks">
+  <a class="nav-brand" href="index.html">Md Touhidul Islam</a>
+  <div class="nav-links" id="navLinks">
     <a href="index.html" class="active">Home</a>
     <a href="publications.html">Publications</a>
+    <a href="experience.html">Experience</a>
     <a href="education.html">Education</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="cv.html">CV</a>
   </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -26,184 +28,164 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- Replace the src below with your own photo file, e.g. assets/photo.jpg -->
-    <img class="hero-photo"
-         src="assets/photo.jpg"
-         alt="Md Touhidul Islam"
-         onerror="this.style.display='none';document.getElementById('photo-placeholder').style.display='flex';" />
-    <div class="hero-photo-placeholder" id="photo-placeholder" style="display:none;">
-      Replace with<br/>assets/photo.jpg
+    <div class="hero-img-wrap">
+      <img class="hero-photo" src="assets/photo.jpg" alt="Md Touhidul Islam"
+           onerror="this.style.display='none';document.getElementById('ph').style.display='flex';" />
+      <div class="hero-photo-placeholder" id="ph" style="display:none;">
+        Add<br/>assets/photo.jpg
+      </div>
     </div>
-
     <div>
       <h1 class="hero-name">Md Touhidul Islam</h1>
-      <p class="hero-title">Ph.D. Candidate · Informatics · Penn State University</p>
-
-      <ul class="contact-list">
-        <li><strong>Email:</strong> <a href="mailto:touhidul.shohan@gmail.com">touhidul.shohan@gmail.com</a></li>
-        <li><strong>Email:</strong> <a href="mailto:touhid@psu.edu">touhid@psu.edu</a></li>
-        <li><strong>Phone:</strong> +1 814-852-9392</li>
-        <li><strong>CV:</strong> <a href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing" target="_blank">Download PDF</a></li>
-      </ul>
-
-      <div class="social-links">
-        <a class="social-btn" href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/></svg>
+      <p class="hero-role">
+        <strong>Ph.D. Candidate in Informatics</strong> · Penn State University (IST)<br/>
+        HCI · Accessibility · Applied ML · Computer Vision · LLMs
+      </p>
+      <div class="hero-contacts">
+        <a href="mailto:touhidul.shohan@gmail.com">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          touhidul.shohan@gmail.com
+        </a>
+        <a href="mailto:touhid@psu.edu">
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          touhid@psu.edu
+        </a>
+        <span>
+          <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+          State College, PA
+        </span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn btn-dark" href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/></svg>
           LinkedIn
         </a>
-        <a class="social-btn" href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-          Google Scholar
+        <a class="btn btn-dark" href="https://github.com/Shohan29531" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
         </a>
-        <a class="social-btn" href="mailto:touhid@psu.edu">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Email
+        <a class="btn btn-dark" href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+          Scholar
         </a>
+        <a class="btn btn-ghost" href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing" target="_blank">CV ↗</a>
+      </div>
+      <div class="banner">
+        🎯 On the <strong>industry job market</strong> — seeking <strong>Applied Science</strong> or <strong>Software Engineering</strong> roles.
+        <a href="mailto:touhidul.shohan@gmail.com">Reach out</a> if you have relevant opportunities!
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="section">
-    <h2 class="section-title">About Me</h2>
+  <section style="margin-bottom:3rem; padding-bottom:3rem; border-bottom:1px solid var(--border);">
+    <p class="sec-label">About</p>
     <div class="about-text">
-      <p>I am a fifth-year Ph.D. candidate in Informatics at Penn State University's College of Information Sciences and Technology (IST). I am working under the supervision of <a href="https://ist.psu.edu/directory/skb5969" target="_blank">Dr. Syed Billah</a> at the <a href="https://a11y.ist.psu.edu/" target="_blank">a11y lab</a>. I hold a Bachelor's degree in Computer Science and Engineering from the Bangladesh University of Engineering and Technology (2017) and a Master's in Informatics from Penn State (2024).</p>
-      <p>My current research focuses on leveraging generative AI to enhance human-computer interaction. More specifically, I use retrieval-augmented generation (RAG) and parameter-efficient fine-tuning (PEFT) methods to fine-tune and enhance LLMs so that they can adapt to the user's needs.</p>
-      <p>This work builds on my earlier contributions to accessibility and interaction design, which include custom input devices, interface adaptations, and probabilistic models of non-visual usability. Grounded in participatory design and user validation, these efforts span desktop, mobile, and VR platforms.</p>
-      <p>My first-author publications have appeared in leading HCI venues including CHI, UIST (<strong>Best Paper Honorable Mention</strong>), ASSETS, IMWUT, and DIS (<strong>Best Paper Honorable Mention</strong>).</p>
-      <div class="banner">
-        🎯 I am on the industry job market, looking for <strong>Applied Science</strong> or <strong>Software Engineering</strong> roles. <a href="mailto:touhidul.shohan@gmail.com">Please contact me</a> if you know about relevant opportunities!
+      <p>I am a fifth-year Ph.D. candidate in Informatics at Penn State University's College of IST, working under <a href="https://ist.psu.edu/directory/skb5969" target="_blank">Dr. Syed Billah</a> at the <a href="https://a11y.ist.psu.edu/" target="_blank">a11y lab</a>. I bring <strong>8+ years of combined experience</strong> — 3+ in industry and 5+ in Ph.D. research — across distributed systems, applied ML, and full-stack development.</p>
+      <p>My current research focuses on leveraging <strong>generative AI for human-computer interaction</strong> — using RAG and parameter-efficient fine-tuning (PEFT) to adapt LLMs to user needs. This builds on earlier work in <strong>accessibility and interaction design</strong>: custom input devices, interface adaptations, and probabilistic models of non-visual usability spanning desktop, mobile, and VR.</p>
+      <p>My first-author publications have appeared in CHI, UIST, ASSETS, IMWUT, and DIS — with <strong>two Best Paper Honorable Mentions</strong> (UIST'24, DIS'25).</p>
+    </div>
+
+    <!-- SKILLS -->
+    <div style="margin-top:1.8rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem;">
+      <div class="skill-group">
+        <p class="skill-label">Languages</p>
+        <div class="pill-row">
+          <span class="pill highlight">Python</span><span class="pill highlight">Java</span>
+          <span class="pill">C/C++</span><span class="pill">JavaScript</span>
+          <span class="pill">C#</span><span class="pill">MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">ML / AI</p>
+        <div class="pill-row">
+          <span class="pill highlight">PyTorch</span><span class="pill highlight">PEFT / LoRA</span>
+          <span class="pill">vLLM</span><span class="pill">LangChain</span>
+          <span class="pill">FAISS</span><span class="pill">TensorFlow</span><span class="pill">Scikit-Learn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Systems & Cloud</p>
+        <div class="pill-row">
+          <span class="pill">Docker</span><span class="pill">Kafka</span>
+          <span class="pill">Azure</span><span class="pill">AWS</span>
+          <span class="pill">Redis</span><span class="pill">PostgreSQL</span>
+          <span class="pill">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-label">Web & Frameworks</p>
+        <div class="pill-row">
+          <span class="pill">React</span><span class="pill">Node.js</span>
+          <span class="pill">Express.js</span><span class="pill">Streamlit</span>
+          <span class="pill">Ollama</span><span class="pill">MCP</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- NEWS -->
-  <section class="section">
-    <h2 class="section-title">News</h2>
+  <section>
+    <p class="sec-label">News</p>
     <ul class="news-list">
-
-      <li class="news-item highlight">
+      <li class="news-item award">
         <span class="news-date">Nov 2025</span>
-        <span class="news-text">Received Special Recognition for Outstanding Review at CHI'26!</span>
+        <span class="news-text">Received Special Recognition for <strong>Outstanding Review</strong> at CHI'26!</span>
       </li>
-
-      <li class="news-item highlight">
-        <span class="news-date">July 2025</span>
-        <span class="news-text"><span class="badge">Best Paper HM</span> Our paper "IKIWISI" received an <a href="https://programs.sigchi.org/dis/2025/program/content/200726" target="_blank">Honorable Mention for Best Paper</a> at DIS'25!</span>
+      <li class="news-item award">
+        <span class="news-date">Jul 2025</span>
+        <span class="news-text"><span class="badge">Best Paper HM</span> "IKIWISI" received an <a href="https://programs.sigchi.org/dis/2025/program/content/200726" target="_blank">Honorable Mention for Best Paper</a> at <strong>DIS'25</strong>!</span>
       </li>
-
       <li class="news-item">
-        <span class="news-date">April 2025</span>
-        <span class="news-text">Our paper "IKIWISI: An Interactive Visual Pattern Generator for Evaluating the Reliability of Vision-Language Models Without Ground Truth" accepted at DIS'25!</span>
+        <span class="news-date">Apr 2025</span>
+        <span class="news-text">"IKIWISI: An Interactive Visual Pattern Generator…" accepted at <strong>DIS'25</strong>!</span>
       </li>
-
       <li class="news-item">
         <span class="news-date">Nov 2024</span>
-        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend UIST'24 in Pittsburgh, USA! (~$1,500)</span>
+        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend UIST'24 in Pittsburgh (~$1,500).</span>
       </li>
-
-      <li class="news-item">
+      <li class="news-item award">
         <span class="news-date">Oct 2024</span>
-        <span class="news-text">Attended UIST'24 in Pittsburgh, USA!</span>
+        <span class="news-text"><span class="badge">Best Paper HM</span> "Wheeler" received an <a href="https://uist.acm.org/2024/" target="_blank">Honorable Mention for Best Paper</a> at <strong>UIST'24</strong>! <a href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">Watch promo ↗</a></span>
       </li>
-
-      <li class="news-item">
-        <span class="news-date">Oct 2024</span>
-        <span class="news-text">Wheeler's <a href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">promo video</a> is available on the SIGCHI YouTube channel!</span>
-      </li>
-
-      <li class="news-item highlight">
-        <span class="news-date">Oct 2024</span>
-        <span class="news-text"><span class="badge">Best Paper HM</span> Our paper "Wheeler: A Three-Wheeled Input Device for Usable, Efficient, and Versatile Non-Visual Interaction" received an <a href="https://uist.acm.org/2024/" target="_blank">Honorable Mention for Best Paper</a> at UIST'24!</span>
-      </li>
-
       <li class="news-item">
         <span class="news-date">Aug 2024</span>
-        <span class="news-text">Our paper "Identifying Crucial Objects in Blind and Low-Vision Individuals' Navigation" accepted at ASSETS'24! <a href="https://arxiv.org/abs/2408.13175" target="_blank">[link]</a></span>
+        <span class="news-text">"Identifying Crucial Objects in BLV Individuals' Navigation" accepted at <strong>ASSETS'24</strong>. <a href="https://arxiv.org/abs/2408.13175" target="_blank">[arXiv]</a></span>
       </li>
-
       <li class="news-item">
-        <span class="news-date">Aug 2024</span>
-        <span class="news-text">Our demo "Demonstration of Wheeler" accepted at UIST'24 Adjunct! <a href="https://arxiv.org/abs/2408.13173" target="_blank">[link]</a></span>
+        <span class="news-date">Jun 2024</span>
+        <span class="news-text">"Wheeler: A Three-Wheeled Input Device…" accepted at <strong>UIST'24</strong>. <a href="https://arxiv.org/abs/2408.13166" target="_blank">[arXiv]</a></span>
       </li>
-
-      <li class="news-item">
-        <span class="news-date">June 2024</span>
-        <span class="news-text">Our paper "Wheeler: A Three-Wheeled Input Device…" accepted at UIST'24! <a href="https://arxiv.org/abs/2408.13166" target="_blank">[link]</a></span>
-      </li>
-
       <li class="news-item">
         <span class="news-date">May 2024</span>
-        <span class="news-text">Passed my Ph.D. Comprehensive Exam — officially a Ph.D. candidate now!</span>
+        <span class="news-text">Passed Ph.D. Comprehensive Exam — officially a Ph.D. candidate!</span>
       </li>
-
       <li class="news-item">
         <span class="news-date">Feb 2024</span>
-        <span class="news-text">Earned my Master's in Informatics on the way to a Ph.D.!</span>
+        <span class="news-text">Earned M.S. in Informatics from Penn State on the way to the Ph.D.</span>
       </li>
-
       <li class="news-item">
-        <span class="news-date">Oct 2023</span>
-        <span class="news-text">Attended Ubicomp/ISWC'23 in majestic Cancun, Mexico!</span>
+        <span class="news-date">Apr 2023</span>
+        <span class="news-text">"SpaceXMag" accepted at <strong>IMWUT'23</strong>. Attended CHI'23 in Hamburg, Germany. <a href="https://doi.org/10.1145/3596253" target="_blank">[ACM DL]</a></span>
       </li>
-
-      <li class="news-item">
-        <span class="news-date">Sep 2023</span>
-        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend Ubicomp'23 in Cancun! (~$3,000)</span>
-      </li>
-
-      <li class="news-item">
-        <span class="news-date">April 2023</span>
-        <span class="news-text">Attended CHI'23 in beautiful Hamburg, Germany!</span>
-      </li>
-
-      <li class="news-item">
-        <span class="news-date">April 2023</span>
-        <span class="news-text">Our paper "SpaceXMag" accepted at IMWUT'23! <a href="https://doi.org/10.1145/3596253" target="_blank">[link]</a></span>
-      </li>
-
-      <li class="news-item">
-        <span class="news-date">Feb 2023</span>
-        <span class="news-text">Received Graduate Student Travel Grant (IST, Penn State) to attend CHI'23 in Hamburg! (~$4,000)</span>
-      </li>
-
       <li class="news-item">
         <span class="news-date">Jan 2023</span>
-        <span class="news-text">Our paper "A Probabilistic Model and Metrics…" accepted at CHI'23! <a href="https://doi.org/10.1145/3544548.3581400" target="_blank">[link]</a></span>
+        <span class="news-text">"A Probabilistic Model and Metrics…" accepted at <strong>CHI'23</strong>. <a href="https://doi.org/10.1145/3544548.3581400" target="_blank">[ACM DL]</a></span>
       </li>
-
-      <li class="news-item">
-        <span class="news-date">Nov 2022</span>
-        <span class="news-text">Received travel grant from Bangladesh-Sweden Trust Fund!</span>
-      </li>
-
-      <li class="news-item">
-        <span class="news-date">May 2022</span>
-        <span class="news-text">Passed my Qualifying Exam — one more step in the Ph.D. journey!</span>
-      </li>
-
-      <li class="news-item">
-        <span class="news-date">April 2021</span>
-        <span class="news-text">Our paper "Understanding Screen Readers' Plugins" accepted at ASSETS'21! <a href="https://doi.org/10.1145/3441852.3471205" target="_blank">[link]</a></span>
-      </li>
-
       <li class="news-item">
         <span class="news-date">Jan 2021</span>
-        <span class="news-text">Started my Ph.D. in Informatics at Pennsylvania State University!</span>
+        <span class="news-text">Started Ph.D. in Informatics at Pennsylvania State University.</span>
       </li>
-
-      <li class="news-item">
-        <span class="news-date">April 2020</span>
-        <span class="news-text">Our paper "Reducing Storage Requirement in Blockchain Networks Using Overlapping Data Distribution" accepted at ICBC'20! <a href="https://link.springer.com/chapter/10.1007/978-3-030-59638-5_4" target="_blank">[link]</a></span>
-      </li>
-
     </ul>
   </section>
 
-</div>
+</div><!-- end page-wrap -->
 
 <footer>
-  &copy; 2025 Md Touhidul Islam &mdash; Built with GitHub Pages
+  &copy; 2025 Md Touhidul Islam &nbsp;·&nbsp;
+  <a href="https://github.com/Shohan29531" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+  <a href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">Google Scholar</a>
 </footer>
 
 <script>
@@ -211,6 +193,5 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 </script>
-
 </body>
 </html>
