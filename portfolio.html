@@ -128,27 +128,27 @@
       </div>
     </div>
 
-    <div class="proj-card">
-      <div class="proj-card-top hci">
-        <p class="proj-cat hci">HCI · Accessibility · Mobile</p>
-        <h2 class="proj-title">SpaceXMag</h2>
-        <p class="proj-desc">Automatic, scalable screen-space optimization framework that compacts smartphone app layouts for low-vision magnifier users. Reduced overview and target-finding task times by <strong>28–43%</strong> in controlled user studies.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Low Vision</span>
-          <span class="proj-tag">Mobile</span>
-          <span class="proj-tag">UI Automation</span>
-          <span class="proj-tag">Android</span>
-        </div>
-      </div>
-      <div class="proj-card-footer">
-        <span class="proj-badge award">IMWUT'23 / UbiComp</span>
-        <a class="pub-link" href="https://doi.org/10.1145/3596253" target="_blank">Paper</a>
-        <a class="pub-link" href="https://github.com/Shohan29531/SpaceXMag" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+    <!-- SPACEXMAG CARD -->
+<div class="port-card" onclick="openModal('spacexmag')">
+  <img class="port-card-img"
+       src="assets/spacexmag-promo.png"
+       alt="SpaceXMag interface"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+  <div class="port-card-img-placeholder" style="display:none;">SpaceXMag</div>
+
+  <div class="port-card-body">
+    <p class="port-card-cat">HCI · Accessibility · Mobile</p>
+    <h2 class="port-card-title">SpaceXMag</h2>
+    <p class="port-card-desc">
+      An automatic, optimization-based screen-space compactor for low-vision smartphone users. SpaceXMag reduces redundant whitespace while preserving layout structure, improving navigation speed and visual context under magnification.
+    </p>
+  </div>
+
+  <div class="port-card-footer">
+    <span class="proj-badge award">IMWUT'23 / UbiComp</span>
+    <span class="port-card-hint">Click to explore ↗</span>
+  </div>
+</div>
 
     <div class="proj-card">
       <div class="proj-card-top hci">
@@ -479,6 +479,106 @@
       <div class="modal-text">
         <p>
           Wheeler introduces a new rotary, parallel input paradigm for non-visual interaction. It enables faster and more structured access to complex application hierarchies, supports interaction with otherwise inaccessible interface components, and offers a low-cost augmentative tool that works alongside screen readers.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SPACEXMAG MODAL -->
+<div class="modal-overlay" id="modal-spacexmag" onclick="closeModalOnOverlay(event,'spacexmag')">
+  <div class="modal">
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('spacexmag')">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-cat">HCI · Accessibility · Mobile Interfaces</p>
+      <h2 class="modal-title">SpaceXMag: Automatic Space Compaction for Low-Vision Accessibility</h2>
+
+      <div class="modal-links">
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
+          IMWUT'23 / UbiComp
+        </span>
+        <a class="pub-link" href="https://doi.org/10.1145/3596253" target="_blank">Paper</a>
+        <a class="pub-link" href="https://www.youtube.com/watch?v=TE1dPjCqP3s" target="_blank">Presentation</a>
+        <a class="pub-link" href="https://github.com/Shohan29531/SpaceXMag" target="_blank">
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="modal-tags">
+        <span class="proj-tag">Low Vision</span>
+        <span class="proj-tag">Mobile UI</span>
+        <span class="proj-tag">Optimization</span>
+        <span class="proj-tag">GEKKO</span>
+        <span class="proj-tag">RICO-SCA</span>
+        <span class="proj-tag">Accessibility</span>
+      </div>
+
+      <img class="modal-img"
+           src="assets/spacexmag-mags.png"
+           alt="SpaceXMag interface overview" />
+
+      <p class="modal-section-title">Problem</p>
+      <div class="modal-text">
+        <p>
+          Low-vision users often rely on screen magnifiers to interact with smartphone interfaces. But conventional magnifiers enlarge both useful content and redundant whitespace, which forces excessive panning and frequently causes loss of context.
+        </p>
+        <p>
+          Because these tools do not reason about layout structure, they can make everyday mobile interaction slower, more effortful, and more cognitively demanding.
+        </p>
+      </div>
+
+      <img class="modal-img"
+           src="assets/spacexmag-opt-stages.png"
+           alt="SpaceXMag optimization stages" />
+
+      <p class="modal-section-title">Solution</p>
+      <div class="modal-text">
+        <p>
+          SpaceXMag is an optimization-based system that automatically compacts whitespace in smartphone UIs while preserving structural relationships between interface elements.
+        </p>
+        <ul>
+          <li>Operates on <strong>DOM-based UI metadata</strong>, not raw pixels.</li>
+          <li>Uses <strong>nonlinear optimization</strong> with GEKKO/IPOPT to restructure layouts under element constraints.</li>
+          <li>Compacts screens through a <strong>bottom-up hierarchical traversal</strong> for local flexibility and global consistency.</li>
+          <li>Supports <strong>fullscreen</strong>, <strong>window</strong>, and <strong>fisheye</strong> magnifier modes.</li>
+          <li>Includes a rendering backend to reconstruct the modified layouts visually.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Evaluation</p>
+      <div class="modal-text">
+        <ul>
+          <li>User study with <strong>11 low-vision participants</strong>.</li>
+          <li>Large-scale testing on <strong>16,500+ screens</strong> from the RICO-SCA dataset.</li>
+        </ul>
+      </div>
+
+      <img class="modal-img"
+           src="assets/spacexmag-before-after.png"
+           alt="SpaceXMag before and after optimization view" />
+
+      <p class="modal-section-title">Outcomes</p>
+      <div class="modal-text">
+        <ul>
+          <li><strong>28.13% faster</strong> in overview tasks than baseline magnifiers.</li>
+          <li><strong>42.89% faster</strong> in target acquisition tasks.</li>
+          <li>Users reported better screen awareness, lower zooming effort, and higher satisfaction, especially in window mode.</li>
+          <li>Saved an average of <strong>47.17% whitespace</strong> across 16.5K+ real app screens.</li>
+          <li>Median runtime was <strong>1.44 seconds per screen</strong>, up to <strong>60× faster</strong> than prior solutions like SUPPLE.</li>
+        </ul>
+      </div>
+
+      <p class="modal-section-title">Impact</p>
+      <div class="modal-text">
+        <p>
+          SpaceXMag demonstrates that DOM-aware, optimization-driven layout restructuring can make magnification substantially more usable in real-world mobile interfaces. It points toward smarter adaptive accessibility tools that preserve context instead of simply enlarging pixels.
         </p>
       </div>
     </div>
