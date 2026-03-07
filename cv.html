@@ -9,59 +9,46 @@
 <body>
 
 <nav>
-  <a class="nav-brand" href="index.html">Md Touhidul Islam</a>
-  <div class="nav-links" id="navLinks">
+  <a class="brand" href="index.html">Md Touhidul Islam</a>
+  <div class="links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="publications.html">Publications</a>
-    <a href="experience.html">Experience</a>
     <a href="education.html">Education</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="cv.html" class="active">CV</a>
   </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="page-wrap">
-  <p class="sec-label">Curriculum Vitae</p>
-  <h1 class="sec-title">CV</h1>
 
-  <div class="cv-download-block">
-    <h2>Md Touhidul Islam</h2>
-    <p>Ph.D. Candidate in Informatics · Penn State University</p>
-    <a class="btn btn-dark" style="display:inline-flex;font-size:.9rem;padding:.65rem 1.6rem;"
-       href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing"
-       target="_blank">
-      <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;">
-        <path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/>
-      </svg>
-      Download PDF
+  <h1 class="section-title" style="font-family:'Lora',serif;font-size:1.8rem;text-transform:none;letter-spacing:0;margin-bottom:2rem;">Curriculum Vitae</h1>
+
+  <div style="text-align:center;margin-bottom:2rem;">
+    <a class="social-btn" href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing" target="_blank" style="display:inline-flex;font-size:1rem;padding:.7rem 1.6rem;">
+      <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
+      Download CV (PDF)
     </a>
   </div>
 
-  <p style="font-size:.88rem;color:var(--text-3);text-align:center;margin-top:-1rem;">
-    You can also view the full CV on 
-    <a href="https://drive.google.com/file/d/1Jy2g54EiGPYXIAwyPM7QYPxEqhZxink1/view?usp=sharing" target="_blank">Google Drive ↗</a>
-  </p>
-
-  <div style="margin-top:2.5rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; font-size:.88rem; color:var(--text-3); text-align:center;">
-    To embed your CV inline, add <code>assets/cv.pdf</code> to the repo and uncomment the iframe below.
+  <div class="placeholder-card">
+    <h3>Embed or expand your CV here</h3>
+    <p style="margin-top:.5rem;font-size:.9rem;">
+      You can place your CV PDF in <code>assets/cv.pdf</code> and embed it below,<br/>or link out to Google Drive as above.
+    </p>
   </div>
 
-  <!-- Uncomment once assets/cv.pdf is added:
-  <iframe src="assets/cv.pdf" width="100%" height="950px"
-    style="border:none;margin-top:2rem;border-radius:var(--radius);box-shadow:var(--shadow-lg);">
-  </iframe>
+  <!-- Uncomment and use once you add assets/cv.pdf -->
+  <!--
+  <iframe src="assets/cv.pdf" width="100%" height="900px" style="border:none;margin-top:2rem;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.1);"></iframe>
   -->
 
 </div>
 
 <footer>
-  &copy; 2025 Md Touhidul Islam &nbsp;·&nbsp;
-  <a href="https://github.com/Shohan29531" target="_blank">GitHub</a> &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/touhidul-shohan/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="https://scholar.google.com/citations?user=hEgPO8oAAAAJ&hl=en" target="_blank">Google Scholar</a>
+  &copy; 2025 Md Touhidul Islam &mdash; Built with GitHub Pages
 </footer>
 
 <script>
@@ -69,5 +56,6 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 </script>
+
 </body>
 </html>
