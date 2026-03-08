@@ -82,7 +82,7 @@ nav {
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--navy); line-height: 1.0;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2rem;
 }
 .sec-divider {
   font-size: .9rem;
@@ -387,91 +387,6 @@ nav {
 }
 
 /* ── IMAGE-BASED PORTFOLIO CARDS ── */
-.port-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow .2s, transform .18s;
-}
-.port-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-}
-
-.port-card-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  background: var(--surface-2);
-}
-
-.port-card-img-placeholder {
-  width: 100%;
-  height: 200px;
-  background: var(--navy-mid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,.35);
-  font-size: .82rem;
-  letter-spacing: .04em;
-}
-
-.port-card-body {
-  padding: 1.2rem 1.3rem 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border-left: 4px solid #7b5ea7;
-}
-
-.port-card-cat {
-  font-size: .67rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: .5rem;
-  color: #7b5ea7;
-}
-
-.port-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.02rem;
-  color: var(--navy);
-  font-weight: 500;
-  line-height: 1.0;
-  margin-bottom: .55rem;
-}
-
-.port-card-desc {
-  font-size: .84rem;
-  color: var(--text);
-  line-height: 1.25;
-  flex: 1;
-}
-
-.port-card-footer {
-  padding: .75rem 1.3rem;
-  border-top: 1px solid var(--border-soft);
-  background: var(--surface-2);
-  display: flex;
-  gap: .5rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.port-card-hint {
-  font-size: .72rem;
-  color: var(--text-3);
-  font-style: italic;
-}
 
 @media (max-width: 900px) {
   .portfolio-grid > .proj-card,

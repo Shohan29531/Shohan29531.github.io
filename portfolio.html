@@ -6,11 +6,11 @@
   <title>Portfolio · Md Touhidul Islam</title>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
-    /* ── IMAGE CARD (IKIWISI style) ── */
+    /* ── IMAGE CARD ── */
     .port-card {
       background: var(--surface);
       border-radius: var(--radius);
-      border: 1px solid var(--border-soft);
+      border: 1.5px solid #100000;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
       cursor: pointer;
@@ -19,24 +19,34 @@
       flex-direction: column;
     }
     .port-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .port-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .port-card-img-placeholder { width: 100%; height: 200px; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); font-size: .8rem; }
-    .port-card-body { padding: 1.2rem 1.3rem 1rem; flex: 1; display: flex; flex-direction: column; border-top: 3px solid #7b5ea7; }
-    .port-card-cat { font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; color: #7b5ea7; }
-    .port-card-title { font-family: var(--font-serif); font-size: 1.05rem; color: var(--navy); font-weight: 500; line-height: 1.3; margin-bottom: .5rem; }
-    .port-card-desc { font-size: .83rem; color: var(--text-2); line-height: 1.6; flex: 1; }
-    .port-card-footer { padding: .7rem 1.3rem; border-top: 1px solid var(--border-soft); background: var(--surface-2); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-    .port-card-hint { font-size: .72rem; color: var(--text-3); font-style: italic; }
+    .port-card-img { width: 100%; height: 130px; object-fit: cover; display: block; }
+    .port-card-img-placeholder { width: 100%; height: 130px; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); font-size: .8rem; }
+    .port-card-body { padding: .75rem .9rem .6rem; flex: 1; display: flex; flex-direction: column; border-top: 1.5px solid #100000; }
+    .port-card-cat { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .25rem; color: #e10d38; }
+    .port-card-title { font-family: var(--font-serif); font-size: .92rem; color: var(--navy); font-weight: 500; line-height: 1.3; margin-bottom: .35rem; }
+    .port-card-desc { font-size: .78rem; color: var(--text-2); line-height: 1.5; flex: 1; }
+    .port-card-footer { padding: .45rem .9rem; border-top: 1px solid var(--border-soft); background: var(--surface-2); display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .port-card-hint { font-size: .68rem; color: var(--text-3); font-style: italic; }
     .port-card-link {
-      display: inline-flex; align-items: center; gap: .25rem;
-      font-size: .7rem; font-weight: 600; color: #7b5ea7;
-      text-decoration: none; padding: .18rem .5rem;
-      border: 1px solid #7b5ea7; border-radius: 3px;
+      display: inline-flex; align-items: center; gap: .2rem;
+      font-size: .65rem; font-weight: 600; color: #1e2db6;
+      text-decoration: none; padding: .14rem .4rem;
+      border: 1px solid #1e2db6; border-radius: 3px;
       transition: background .15s, color .15s; line-height: 1.2;
       white-space: nowrap;
     }
-    .port-card-link:hover { background: #7b5ea7; color: #fff; }
-    .port-card-footer-right { display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
+    .port-card-link:hover { background: #1e2db6; color: #fff; }
+    .port-card-footer-right { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; }
+
+    /* ── 4-column grid ── */
+    .portfolio-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    @media (max-width: 1100px) { .portfolio-grid-4 { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .portfolio-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .portfolio-grid-4 { grid-template-columns: 1fr; } }
 
     /* ── MODAL ── */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 500; align-items: center; justify-content: center; padding: 1.5rem; }
@@ -48,7 +58,7 @@
     .modal-close { position: absolute; top: .75rem; right: .75rem; background: rgba(0,0,0,.5); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: background .15s; }
     .modal-close:hover { background: var(--accent); }
     .modal-body { padding: 1.8rem 2rem 2rem; }
-    .modal-cat { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; color: #7b5ea7; }
+    .modal-cat { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; color: #e10d38; }
     .modal-title { font-family: var(--font-serif); font-size: 1.4rem; color: var(--navy); font-weight: 600; line-height: 1.3; margin-bottom: .7rem; }
     .modal-links { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
     .modal-section-title { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 1.4rem 0 .5rem; }
@@ -80,341 +90,252 @@
 </nav>
 
 <div class="wide-wrap">
-  <p class="sec-label">Work</p>
-  <h1 class="sec-title">Portfolio</h1>
+  <center><h1 class="sec-title">Research Portfolio</h1></center>
 
-  <!-- <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:-1rem;margin-bottom:2.2rem;">
-    <span style="font-size:.77rem;font-weight:600;color:#4a7cbb;letter-spacing:.05em;">■ HCI &amp; Accessibility</span>
-    <span style="font-size:.77rem;font-weight:600;color:#7b5ea7;letter-spacing:.05em;">■ Computer Vision &amp; ML</span>
-    <span style="font-size:.77rem;font-weight:600;color:var(--green);letter-spacing:.05em;">■ LLMs &amp; Agentic AI</span>
-    <span style="font-size:.77rem;font-weight:600;color:var(--accent);letter-spacing:.05em;">■ Systems &amp; Tools</span>
-  </div> -->
+  <!-- ── ALL 12 PROJECTS – single 4-column grid ── -->
+  <div class="portfolio-grid-4">
 
-  <!-- ── HCI SECTION (unchanged) ── -->
-  <div class="sec-divider">HCI &amp; Accessibility</div>
-  <div class="portfolio-grid">
-
-  <!-- WHEELER CARD -->
-  <div class="port-card" onclick="openModal('wheeler')">
-    <img class="port-card-img"
-        src="assets/wheeler-device.png"
-        alt="Wheeler device"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-    <div class="port-card-img-placeholder" style="display:none;">Wheeler</div>
-
-    <div class="port-card-body">
-      <p class="port-card-cat">HCI · Accessibility · Input Devices</p>
-      <h2 class="port-card-title">Wheeler</h2>
-      <p class="port-card-desc">
-        A mouse-shaped input device with three independently rotatable wheels for non-visual GUI navigation. Wheeler supports both hierarchical navigation and 2D navigation, helping blind users move through complex interfaces more efficiently.
-      </p>
+    <!-- WHEELER -->
+    <div class="port-card" onclick="openModal('wheeler')">
+      <img class="port-card-img" src="assets/wheeler-device.png" alt="Wheeler device"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">Wheeler</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">HCI · Accessibility · Input Devices</p>
+        <h2 class="port-card-title">Wheeler</h2>
+        <p class="port-card-desc">A mouse-shaped input device with three independently rotatable wheels for faster GUI navigation.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge award">🏆 Best Paper HM · UIST'24</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://dl.acm.org/doi/abs/10.1145/3654777.3676396" target="_blank" onclick="event.stopPropagation()">Paper</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
     </div>
 
-    <div class="port-card-footer">
-      <span class="proj-badge award">🏆 Best Paper HM · UIST'24</span>
-      <div class="port-card-footer-right">
-        <a class="port-card-link" href="https://dl.acm.org/doi/abs/10.1145/3654777.3676396" target="_blank" onclick="event.stopPropagation()">Paper</a>
+    <!-- BLV NAV OBJECTS -->
+    <div class="port-card" onclick="openModal('blvnavobjects')">
+      <img class="port-card-img" src="assets/dataset-dist.png" alt="BLV navigation objects project"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">BLV Nav Objects</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">Accessibility · Computer Vision</p>
+        <h2 class="port-card-title">BLV Road Nav Objects</h2>
+        <p class="port-card-desc">A taxonomy and benchmark of 90 objects crucial for blind and low-vision individuals' navigation.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge award">ASSETS'24</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://dl.acm.org/" target="_blank" onclick="event.stopPropagation()">Paper</a>
+          <a class="port-card-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPACEXMAG -->
+    <div class="port-card" onclick="openModal('spacexmag')">
+      <img class="port-card-img" src="assets/spacexmag-promo.png" alt="SpaceXMag interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">SpaceXMag</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">HCI · Accessibility · Mobile</p>
+        <h2 class="port-card-title">SpaceXMag</h2>
+        <p class="port-card-desc">An automatic space compactor for low-vision smartphone users, reducing whitespace under magnification.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge award">IMWUT'23 / UbiComp</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://doi.org/10.1145/3596253" target="_blank" onclick="event.stopPropagation()">Paper</a>
+          <a class="port-card-link" href="https://github.com/Shohan29531/SpaceXMag" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSIBILITY METRICS -->
+    <div class="port-card" onclick="openModal('accmetrics')">
+      <img class="port-card-img" src="assets/metrics-ratings.png" alt="Accessibility Metrics project"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">Accessibility Metrics</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">HCI · Accessibility · Desktop</p>
+        <h2 class="port-card-title">Accessibility Metrics</h2>
+        <p class="port-card-desc">A probabilistic framework for estimating perceived accessibility of desktop apps in non-visual interaction.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge award">CHI'23</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://dl.acm.org/doi/abs/10.1145/3544548.3581400" target="_blank" onclick="event.stopPropagation()">Paper</a>
+          <a class="port-card-link" href="https://github.com/Shohan29531/Accessibility-Metrics" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPENACCAPI -->
+    <div class="port-card" onclick="openModal('openaccapi')">
+      <img class="port-card-img" src="assets/openacc-usage.png" alt="OpenAccAPI interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">OpenAccAPI</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">HCI · Accessibility · VR/XR</p>
+        <h2 class="port-card-title">OpenAccAPI</h2>
+        <p class="port-card-desc">An open-source accessibility API for 3D and VR apps enabling numerous accessibility features in existing Unity games.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">Under Review</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://github.com/Shohan29531/OpenAccAPI" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- IKIWISI -->
+    <div class="port-card" onclick="openModal('ikiwisi')">
+      <img class="port-card-img" src="assets/ikiwisi-promo.png" alt="IKIWISI interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">IKIWISI</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">Computer Vision · VLMs · Evaluation</p>
+        <h2 class="port-card-title">IKIWISI</h2>
+        <p class="port-card-desc">A heatmap-based tool for evaluating VLM reliability without ground truth across video frames.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge award">🏆 Best Paper HM · DIS'25</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://dl.acm.org/doi/full/10.1145/3715336.3735754" target="_blank" onclick="event.stopPropagation()">Paper</a>
+          <a class="port-card-link" href="https://github.com/Shohan29531/IKIWISI" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPORAL VOS LOSS -->
+    <div class="port-card" onclick="openModal('temporalvos')">
+      <img class="port-card-img" src="assets/vos-promo.png" alt="Temporal VOS Loss overview"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">Temporal VOS Loss</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">Computer Vision · Video Segmentation</p>
+        <h2 class="port-card-title">Temporal VOS Loss</h2>
+        <p class="port-card-desc">A model-agnostic temporal consistency loss improving VOS robustness under occlusion and reappearance.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">CVPR'26 · Under Review</span>
         <span class="port-card-hint">Details ↗</span>
       </div>
     </div>
-  </div>
 
-<!-- BLV NAV OBJECTS CARD -->
-<div class="port-card" onclick="openModal('blvnavobjects')">
-  <img class="port-card-img"
-       src="assets/dataset-dist.png"
-       alt="BLV navigation objects project"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">BLV Nav Objects</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">HCI · Accessibility · Computer Vision</p>
-    <h2 class="port-card-title">BLV Road Nav Objects</h2>
-    <p class="port-card-desc">
-      A taxonomy and benchmark of objects crucial for blind and low-vision navigation, built from real-world navigation videos and focus-group refinement to expose gaps in current vision models.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge award">ASSETS'24</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://dl.acm.org/" target="_blank" onclick="event.stopPropagation()">Paper</a>
-      <a class="port-card-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
-    </div>
-  </div>
-</div>
-
-    <!-- SPACEXMAG CARD -->
-<div class="port-card" onclick="openModal('spacexmag')">
-  <img class="port-card-img"
-       src="assets/spacexmag-promo.png"
-       alt="SpaceXMag interface"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">SpaceXMag</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">HCI · Accessibility · Mobile</p>
-    <h2 class="port-card-title">SpaceXMag</h2>
-    <p class="port-card-desc">
-      An automatic, optimization-based screen-space compactor for low-vision smartphone users. SpaceXMag reduces redundant whitespace while preserving layout structure, improving navigation speed and visual context under magnification.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge award">IMWUT'23 / UbiComp</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://doi.org/10.1145/3596253" target="_blank" onclick="event.stopPropagation()">Paper</a>
-      <a class="port-card-link" href="https://github.com/Shohan29531/SpaceXMag" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
-    </div>
-  </div>
-</div>
-
-    <!-- ACCESSIBILITY METRICS CARD -->
-<div class="port-card" onclick="openModal('accmetrics')">
-  <img class="port-card-img"
-       src="assets/metrics-ratings.png"
-       alt="Accessibility Metrics project"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">Accessibility Metrics</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">HCI · Accessibility · Desktop</p>
-    <h2 class="port-card-title">Accessibility Metrics</h2>
-    <p class="port-card-desc">
-      A probabilistic framework for estimating the perceived accessibility of desktop applications in keystroke-based non-visual interaction, using UI structure to quantify navigation difficulty without requiring full user studies.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge award">CHI'23</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://dl.acm.org/doi/abs/10.1145/3544548.3581400" target="_blank" onclick="event.stopPropagation()">Paper</a>
-      <a class="port-card-link" href="https://github.com/Shohan29531/Accessibility-Metrics" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
-    </div>
-  </div>
-</div>
-
-    <!-- OPENACCAPI CARD -->
-<div class="port-card" onclick="openModal('openaccapi')">
-  <img class="port-card-img"
-       src="assets/openacc-usage.png"
-       alt="OpenAccAPI interface"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">OpenAccAPI</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">HCI · Accessibility · XR</p>
-    <h2 class="port-card-title">OpenAccAPI</h2>
-    <p class="port-card-desc">
-      An open-source accessibility API for 3D and VR applications that exposes scene and UI elements to assistive technologies, enabling non-visual navigation, text-to-speech, and spatial feedback in existing Unity apps.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">Under Review</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://github.com/Shohan29531/OpenAccAPI" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
-    </div>
-  </div>
-</div>
-
-  </div><!-- end hci grid -->
-
-  <!-- ── CV / ML SECTION ── -->
-  <div class="sec-divider" style="margin-top:4rem;">Computer Vision &amp; Machine Learning</div>
-  <div class="portfolio-grid">
-
-    <!-- IKIWISI — image card with modal -->
-  <div class="port-card" onclick="openModal('ikiwisi')">
-    <img class="port-card-img"
-        src="assets/ikiwisi-patterns.png  "
-        alt="IKIWISI interface"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-    <div class="port-card-img-placeholder" style="display:none;">IKIWISI</div>
-
-    <div class="port-card-body">
-      <p class="port-card-cat">Computer Vision · VLMs · Evaluation</p>
-      <h2 class="port-card-title">IKIWISI</h2>
-      <p class="port-card-desc">
-        Interactive heatmap-based tool for evaluating vision-language model reliability without ground truth — surfaces inconsistencies and object-tracking failures across video frames.
-      </p>
-    </div>
-
-    <div class="port-card-footer">
-      <span class="proj-badge award">🏆 Best Paper HM · DIS'25</span>
-      <div class="port-card-footer-right">
-        <a class="port-card-link" href="https://dl.acm.org/doi/full/10.1145/3715336.3735754" target="_blank" onclick="event.stopPropagation()">Paper</a>
-        <a class="port-card-link" href="https://github.com/Shohan29531/IKIWISI" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+    <!-- OTN -->
+    <div class="port-card" onclick="openModal('otn')">
+      <img class="port-card-img" src="assets/otn-promo.png" alt="Object Trajectory Narratives overview"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">OTN</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">Computer Vision · 3D Scenes · LLMs</p>
+        <h2 class="port-card-title">Object Trajectory Narratives (OTN)</h2>
+        <p class="port-card-desc">A structured motion grammar replacing pixel inputs with engine telemetry for 3D scene reasoning.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">ECCV'26 · Under Review</span>
         <span class="port-card-hint">Details ↗</span>
       </div>
     </div>
-  </div>
 
-<!-- TEMPORAL VOS LOSS CARD -->
-<div class="port-card" onclick="openModal('temporalvos')">
-  <img class="port-card-img"
-       src="assets/vos-promo.png"
-       alt="Temporal VOS Loss overview"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">Temporal VOS Loss</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">Computer Vision · Video Segmentation</p>
-    <h2 class="port-card-title">Temporal VOS Loss</h2>
-    <p class="port-card-desc">
-      A model-agnostic temporal consistency loss for video object segmentation that improves robustness under occlusion, small-object motion, and object reappearance without changing the base architecture.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">CVPR'26 · Under Review</span>
-    <span class="port-card-hint">Details ↗</span>
-  </div>
-</div>
-
-    <!-- OTN CARD -->
-<div class="port-card" onclick="openModal('otn')">
-  <img class="port-card-img"
-       src="assets/otn-promo.png"
-       alt="Object Trajectory Narratives overview"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">OTN</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">Computer Vision · 3D Scenes · LLMs</p>
-    <h2 class="port-card-title">Object Trajectory Narratives (OTN)</h2>
-    <p class="port-card-desc">
-      A structured, object-centric motion grammar that replaces pixel inputs with engine telemetry, enabling small language models to reason about complex 3D and virtual scenes through compact motion narratives.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">ECCV'26 · Under Review</span>
-    <span class="port-card-hint">Details ↗</span>
-  </div>
-</div>
-
-    <!-- FORENSIGHT CARD -->
-<div class="port-card" onclick="openModal('forensight')">
-  <img class="port-card-img"
-       src="assets/foren-sight-promo.png"
-       alt="ForenSight interface"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">ForenSight</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">Computer Vision · Video Analysis · Systems</p>
-    <h2 class="port-card-title">ForenSight</h2>
-    <p class="port-card-desc">
-      A local-first video investigation pipeline for grounded text-to-timestamp retrieval, event-centric playback, rule-based incident detection, and multi-camera correlation.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">Systems &amp; Tools</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://github.com/Shohan29531/foren-sight" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
+    <!-- FORENSIGHT -->
+    <div class="port-card" onclick="openModal('forensight')">
+      <img class="port-card-img" src="assets/foren-sight-promo.png" alt="ForenSight interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">ForenSight</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">Computer Vision · Video Analysis · Systems</p>
+        <h2 class="port-card-title">ForenSight</h2>
+        <p class="port-card-desc">A local-first video investigation pipeline for grounded text-to-timestamp retrieval and event detection.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">Systems &amp; Tools</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://github.com/Shohan29531/foren-sight" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-  </div><!-- end cv grid -->
-
-  <!-- ── LLM SECTION (unchanged) ── -->
-  <div class="sec-divider" style="margin-top:4rem;">LLMs &amp; Agentic AI</div>
-  <div class="portfolio-grid">
-
-    <!-- TEACHPILOT CARD -->
-<div class="port-card" onclick="openModal('teachpilot')">
-  <img class="port-card-img"
-       src="assets/teach-pilot-promo.png"
-       alt="TeachPilot interface"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">TeachPilot</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">LLMs · Education · Agentic AI</p>
-    <h2 class="port-card-title">TeachPilot</h2>
-    <p class="port-card-desc">
-      A teacher-guided classroom LLM assistant that adapts per assignment, combines base and assignment-specific prompts, and enforces instructor-defined constraints to promote reasoning-first learning.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">Classroom LLM System</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://github.com/Shohan29531/teach-pilot" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
+    <!-- TEACHPILOT -->
+    <div class="port-card" onclick="openModal('teachpilot')">
+      <img class="port-card-img" src="assets/teach-pilot-promo.png" alt="TeachPilot interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">TeachPilot</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">LLMs · Education · Agentic AI</p>
+        <h2 class="port-card-title">TeachPilot</h2>
+        <p class="port-card-desc">A teacher-guided classroom LLM assistant that adapts per assignment with instructor-defined guardrails.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">Classroom LLM System</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://github.com/Shohan29531/teach-pilot" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-  <!-- LLM UNLEARNING CARD -->
-<div class="port-card" onclick="openModal('llmunlearning')">
-  <img class="port-card-img"
-       src="assets/unlearn-promo.png"
-       alt="LLM unlearning project"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">LLM Unlearning</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">LLMs · PEFT · Machine Unlearning</p>
-    <h2 class="port-card-title">LLM Unlearning with Synthetic Data</h2>
-    <p class="port-card-desc">
-      A parameter-efficient unlearning pipeline that uses synthetic data and LoRA-based fine-tuning to remove targeted behaviors or knowledge from large language models while preserving overall utility.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">LLM Systems</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://github.com/Shohan29531/unlearn-llm-peft-synthetic" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
+    <!-- LLM UNLEARNING -->
+    <div class="port-card" onclick="openModal('llmunlearning')">
+      <img class="port-card-img" src="assets/unlearn-promo.png" alt="LLM unlearning project"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">LLM Unlearning</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">LLMs · PEFT · Machine Unlearning</p>
+        <h2 class="port-card-title">LLM Unlearning with Synthetic Data</h2>
+        <p class="port-card-desc">A parameter-efficient unlearning pipeline using LoRA to remove targeted behaviors from LLMs.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">LLM Systems</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://github.com/Shohan29531/unlearn-llm-peft-synthetic" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- PAALSS ANALYZER CARD -->
-<div class="port-card" onclick="openModal('paalssanalyzer')">
-  <img class="port-card-img"
-       src="assets/paalss-promo-3.png"
-       alt="PAALSS Analyzer interface"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-  <div class="port-card-img-placeholder" style="display:none;">PAALSS Analyzer</div>
-
-  <div class="port-card-body">
-    <p class="port-card-cat">LLMs · Clinical Drafting · Accessibility</p>
-    <h2 class="port-card-title">PAALSS Analyzer</h2>
-    <p class="port-card-desc">
-      A Streamlit-based analyzer for generating PAALSS-style reports from Spanish aided AAC transcripts using Ollama, with editable transcript input, configurable prompting, and exportable drafting support.
-    </p>
-  </div>
-
-  <div class="port-card-footer">
-    <span class="proj-badge preprint">Research Tool</span>
-    <div class="port-card-footer-right">
-      <a class="port-card-link" href="https://github.com/Shohan29531/paalss-analyzer" target="_blank" onclick="event.stopPropagation()">GitHub</a>
-      <span class="port-card-hint">Details ↗</span>
+    <!-- PAALSS ANALYZER -->
+    <div class="port-card" onclick="openModal('paalssanalyzer')">
+      <img class="port-card-img" src="assets/paalss-promo-3.png" alt="PAALSS Analyzer interface"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="port-card-img-placeholder" style="display:none;">PAALSS Analyzer</div>
+      <div class="port-card-body">
+        <p class="port-card-cat">LLMs · Clinical Drafting · Accessibility</p>
+        <h2 class="port-card-title">PAALSS Analyzer</h2>
+        <p class="port-card-desc">An LLM-based analyzer for generating PAALSS-style reports from Spanish aided AAC transcripts via Ollama.</p>
+      </div>
+      <div class="port-card-footer">
+        <span class="proj-badge preprint">Research Tool</span>
+        <div class="port-card-footer-right">
+          <a class="port-card-link" href="https://github.com/Shohan29531/paalss-analyzer" target="_blank" onclick="event.stopPropagation()">GitHub</a>
+          <span class="port-card-hint">Details ↗</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-  </div><!-- end llm grid -->
+  </div><!-- end portfolio-grid-4 -->
 
 </div><!-- end wide-wrap -->
 
 
-<!-- ── IKIWISI MODAL ── -->
+<!-- ══════════════════════════════════════════════════
+     ALL MODALS (unchanged from original)
+     ══════════════════════════════════════════════════ -->
+
+<!-- IKIWISI MODAL -->
 <div class="modal-overlay" id="modal-ikiwisi" onclick="closeModalOnOverlay(event,'ikiwisi')">
   <div class="modal">
-<div class="modal-header modal-header-noimage">
-  <button class="modal-close" onclick="closeModal('ikiwisi')">✕</button>
-</div>
+    <div class="modal-header modal-header-noimage">
+      <button class="modal-close" onclick="closeModal('ikiwisi')">✕</button>
+    </div>
     <div class="modal-body">
       <p class="modal-cat">Computer Vision · Vision-Language Models · Evaluation</p>
       <h2 class="modal-title">IKIWISI: Visual Debugging for Large Multi-Modal Model Inconsistencies</h2>
@@ -431,21 +352,13 @@
         <span class="proj-tag">Plotly</span><span class="proj-tag">numpy</span>
         <span class="proj-tag">RStudio</span><span class="proj-tag">SPSS</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/ikiwisi-promo.png"
-           alt="IKIWISI heatmap patterns" />
-
+      <img class="modal-img" src="assets/ikiwisi-promo.png" alt="IKIWISI heatmap patterns" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
         <p>Large multimodal models (LMMs) like GPT-4V can process text, images, and video — but unlike humans, their outputs often lack common sense and can be inconsistent across modalities. In multi-label video object recognition, a model might identify an object in one frame but miss it in the next, even when frames are nearly identical.</p>
         <p>Automated metrics like F1 or average precision cannot capture such inconsistencies, making human evaluation essential. But there was no simple tool that let non-experts assess whether a model was actually performing reliably.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/ikiwisi-patterns.png"
-           alt="IKIWISI heatmap patterns" />
-
+      <img class="modal-img" src="assets/ikiwisi-patterns.png" alt="IKIWISI heatmap patterns" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
         <p>IKIWISI (I-Know-It-When-I-See-It) is a lightweight, intuitive tool that visualizes LMM prediction inconsistencies across video frames via binary heatmaps:</p>
@@ -456,7 +369,6 @@
           <li>High-level patterns in the heatmap let users quickly judge model reliability without any ML expertise.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -466,7 +378,6 @@
           <li>Even non-technical users could identify inconsistency patterns and contribute to model assessment workflows.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
         <p>IKIWISI is among the first tools to enable intuitive inconsistency diagnosis across LMM outputs without requiring code or model access. It supports faster and more inclusive evaluation workflows for researchers, QA teams, and designers, and can be integrated into model audit pipelines and prompt refinement tools.</p>
@@ -481,53 +392,30 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('wheeler')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">HCI · Accessibility · Assistive Technology</p>
       <h2 class="modal-title">Wheeler: Multi-Wheel Input for Non-Visual Navigation</h2>
-
       <div class="modal-links">
-        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
-          🏆 Best Paper Honorable Mention · UIST'24
-        </span>
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">🏆 Best Paper Honorable Mention · UIST'24</span>
         <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3654777.3676396" target="_blank">Paper</a>
         <a class="pub-link" href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">Promo</a>
         <a class="pub-link" href="https://www.youtube.com/watch?v=iUMU6dKf3NM" target="_blank">Presentation</a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Hardware</span>
-        <span class="proj-tag">Blind Users</span>
-        <span class="proj-tag">Input Device</span>
-        <span class="proj-tag">GUI Navigation</span>
-        <span class="proj-tag">Arduino Pro Micro</span>
-        <span class="proj-tag">C#</span>
-        <span class="proj-tag">C++</span>
+        <span class="proj-tag">Hardware</span><span class="proj-tag">Blind Users</span>
+        <span class="proj-tag">Input Device</span><span class="proj-tag">GUI Navigation</span>
+        <span class="proj-tag">Arduino Pro Micro</span><span class="proj-tag">C#</span><span class="proj-tag">C++</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/wheeler-overview.png"
-           alt="Wheeler device overview" />
-
+      <img class="modal-img" src="assets/wheeler-overview.png" alt="Wheeler device overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Blind users often face major challenges when navigating modern graphical user interfaces, especially when interface elements are deeply nested, unlabeled, or visually grouped without accessible structure.
-        </p>
-        <p>
-          Traditional screen readers and keyboard shortcuts are often linear and slow, making it difficult to work efficiently in complex software or perform tasks such as remote technical support. These barriers can increase reliance on sighted assistance and reduce digital autonomy.
-        </p>
+        <p>Blind users often face major challenges when navigating modern graphical user interfaces, especially when interface elements are deeply nested, unlabeled, or visually grouped without accessible structure.</p>
+        <p>Traditional screen readers and keyboard shortcuts are often linear and slow, making it difficult to work efficiently in complex software or perform tasks such as remote technical support. These barriers can increase reliance on sighted assistance and reduce digital autonomy.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/wheeler-nav-1.png"
-           alt="Wheeler Hierarchical Navigation Mode" />
-
+      <img class="modal-img" src="assets/wheeler-nav-1.png" alt="Wheeler Hierarchical Navigation Mode" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          Wheeler is a mouse-shaped device with <strong>three independently rotatable wheels</strong>, where each wheel controls a different axis or level of navigation.
-        </p>
+        <p>Wheeler is a mouse-shaped device with <strong>three independently rotatable wheels</strong>, where each wheel controls a different axis or level of navigation.</p>
         <ul>
           <li><strong>H-Nav Mode:</strong> supports hierarchical navigation through app structure, such as window → panel → element.</li>
           <li><strong>2D-Nav Mode:</strong> supports spatial navigation, where two wheels control horizontal and vertical cursor movement and the third wheel controls cursor speed.</li>
@@ -535,11 +423,7 @@
           <li>It was iteratively co-designed with blind users through participatory design sessions.</li>
         </ul>
       </div>
-
-      <img class="modal-img"
-           src="assets/wheeler-nav-2.png"
-           alt="Wheeler 2D Navigation Mode" />
-
+      <img class="modal-img" src="assets/wheeler-nav-2.png" alt="Wheeler 2D Navigation Mode" />
       <p class="modal-section-title">Evaluation</p>
       <div class="modal-text">
         <ul>
@@ -547,7 +431,6 @@
           <li>A 6-month diary study with a blind co-author using Wheeler in real-world scenarios.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -557,17 +440,13 @@
           <li>Users reported improved agency, lower frustration, and quick learnability.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          Wheeler introduces a new rotary, parallel input paradigm for non-visual interaction. It enables faster and more structured access to complex application hierarchies, supports interaction with otherwise inaccessible interface components, and offers a low-cost augmentative tool that works alongside screen readers.
-        </p>
+        <p>Wheeler introduces a new rotary, parallel input paradigm for non-visual interaction. It enables faster and more structured access to complex application hierarchies, supports interaction with otherwise inaccessible interface components, and offers a low-cost augmentative tool that works alongside screen readers.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- SPACEXMAG MODAL -->
 <div class="modal-overlay" id="modal-spacexmag" onclick="closeModalOnOverlay(event,'spacexmag')">
@@ -575,57 +454,33 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('spacexmag')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">HCI · Accessibility · Mobile Interfaces</p>
       <h2 class="modal-title">SpaceXMag: Automatic Space Compaction for Low-Vision Accessibility</h2>
-
       <div class="modal-links">
-        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
-          IMWUT'23 / UbiComp
-        </span>
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">IMWUT'23 / UbiComp</span>
         <a class="pub-link" href="https://doi.org/10.1145/3596253" target="_blank">Paper</a>
         <a class="pub-link" href="https://www.youtube.com/watch?v=TE1dPjCqP3s" target="_blank">Presentation</a>
         <a class="pub-link" href="https://github.com/Shohan29531/SpaceXMag" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Low Vision</span>
-        <span class="proj-tag">Mobile UI</span>
-        <span class="proj-tag">Optimization</span>
-        <span class="proj-tag">GEKKO</span>
-        <span class="proj-tag">RICO-SCA</span>
-        <span class="proj-tag">Accessibility</span>
+        <span class="proj-tag">Low Vision</span><span class="proj-tag">Mobile UI</span>
+        <span class="proj-tag">Optimization</span><span class="proj-tag">GEKKO</span>
+        <span class="proj-tag">RICO-SCA</span><span class="proj-tag">Accessibility</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/spacexmag-mags.png"
-           alt="SpaceXMag interface overview" />
-
+      <img class="modal-img" src="assets/spacexmag-mags.png" alt="SpaceXMag interface overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Low-vision users often rely on screen magnifiers to interact with smartphone interfaces. But conventional magnifiers enlarge both useful content and redundant whitespace, which forces excessive panning and frequently causes loss of context.
-        </p>
-        <p>
-          Because these tools do not reason about layout structure, they can make everyday mobile interaction slower, more effortful, and more cognitively demanding.
-        </p>
+        <p>Low-vision users often rely on screen magnifiers to interact with smartphone interfaces. But conventional magnifiers enlarge both useful content and redundant whitespace, which forces excessive panning and frequently causes loss of context.</p>
+        <p>Because these tools do not reason about layout structure, they can make everyday mobile interaction slower, more effortful, and more cognitively demanding.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/spacexmag-opt-stages.png"
-           alt="SpaceXMag optimization stages" />
-
+      <img class="modal-img" src="assets/spacexmag-opt-stages.png" alt="SpaceXMag optimization stages" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          SpaceXMag is an optimization-based system that automatically compacts whitespace in smartphone UIs while preserving structural relationships between interface elements.
-        </p>
+        <p>SpaceXMag is an optimization-based system that automatically compacts whitespace in smartphone UIs while preserving structural relationships between interface elements.</p>
         <ul>
           <li>Operates on <strong>DOM-based UI metadata</strong>, not raw pixels.</li>
           <li>Uses <strong>nonlinear optimization</strong> with GEKKO/IPOPT to restructure layouts under element constraints.</li>
@@ -634,7 +489,6 @@
           <li>Includes a rendering backend to reconstruct the modified layouts visually.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Evaluation</p>
       <div class="modal-text">
         <ul>
@@ -642,11 +496,7 @@
           <li>Large-scale testing on <strong>16,500+ screens</strong> from the RICO-SCA dataset.</li>
         </ul>
       </div>
-
-      <img class="modal-img"
-           src="assets/spacexmag-before-after.png"
-           alt="SpaceXMag before and after optimization view" />
-
+      <img class="modal-img" src="assets/spacexmag-before-after.png" alt="SpaceXMag before and after optimization view" />
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -657,12 +507,9 @@
           <li>Median runtime was <strong>1.44 seconds per screen</strong>, up to <strong>60× faster</strong> than prior solutions like SUPPLE.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          SpaceXMag demonstrates that DOM-aware, optimization-driven layout restructuring can make magnification substantially more usable in real-world mobile interfaces. It points toward smarter adaptive accessibility tools that preserve context instead of simply enlarging pixels.
-        </p>
+        <p>SpaceXMag demonstrates that DOM-aware, optimization-driven layout restructuring can make magnification substantially more usable in real-world mobile interfaces. It points toward smarter adaptive accessibility tools that preserve context instead of simply enlarging pixels.</p>
       </div>
     </div>
   </div>
@@ -674,55 +521,30 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('teachpilot')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">LLMs · Education · Classroom Systems</p>
       <h2 class="modal-title">TeachPilot: Instructor-Guided LLM Support for Reasoning-First Learning</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          Classroom LLM System
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">Classroom LLM System</span>
         <a class="pub-link" href="https://github.com/Shohan29531/teach-pilot" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Streamlit</span>
-        <span class="proj-tag">Ollama</span>
-        <span class="proj-tag">Education</span>
-        <span class="proj-tag">Prompt Control</span>
-        <span class="proj-tag">Supabase</span>
-        <span class="proj-tag">Assignments</span>
+        <span class="proj-tag">Streamlit</span><span class="proj-tag">Ollama</span>
+        <span class="proj-tag">Education</span><span class="proj-tag">Prompt Control</span>
+        <span class="proj-tag">Supabase</span><span class="proj-tag">Assignments</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/teach-pilot-overview.png"
-           alt="TeachPilot interface overview" />
-
+      <img class="modal-img" src="assets/teach-pilot-overview.png" alt="TeachPilot interface overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          In classroom settings, general-purpose LLMs can easily over-help, provide direct solutions too quickly, or ignore the structure and expectations of a specific assignment. This makes it hard for instructors to use AI support without undermining students’ own reasoning process.
-        </p>
-        <p>
-          Instructors also need a practical way to adapt AI behavior across assignments, manage student access, and review interactions in a structured classroom environment.
-        </p>
+        <p>In classroom settings, general-purpose LLMs can easily over-help, provide direct solutions too quickly, or ignore the structure and expectations of a specific assignment. This makes it hard for instructors to use AI support without undermining students' own reasoning process.</p>
+        <p>Instructors also need a practical way to adapt AI behavior across assignments, manage student access, and review interactions in a structured classroom environment.</p>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/teachpilot-workflow.png"
-           alt="TeachPilot assignment-guided workflow" /> -->
-
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          TeachPilot is a teacher-guided LLM assistant that changes behavior per assignment and applies instructor-defined guardrails before sending requests to the model.
-        </p>
+        <p>TeachPilot is a teacher-guided LLM assistant that changes behavior per assignment and applies instructor-defined guardrails before sending requests to the model.</p>
         <ul>
           <li>Uses a <strong>two-part prompting structure</strong>: a base system prompt plus an assignment-specific prompt.</li>
           <li>Supports <strong>assignment-scoped conversations</strong>, so each chat is tied to the active coursework context.</li>
@@ -731,7 +553,6 @@
           <li>Provides a <strong>student-facing chat experience</strong> with copy-message and copy-conversation utilities.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">System Design</p>
       <div class="modal-text">
         <ul>
@@ -741,7 +562,6 @@
           <li>Processes uploaded images and files before composing the final model request.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -750,17 +570,13 @@
           <li>Makes it feasible to deploy course-specific AI support with persistent history, transcript access, and manageable administration.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          TeachPilot shows how classroom AI can be structured as an instructor-shaped system rather than a generic chatbot. By combining assignment-aware prompting, role-based controls, and persistent conversation management, it supports more accountable and pedagogically aligned AI use in education.
-        </p>
+        <p>TeachPilot shows how classroom AI can be structured as an instructor-shaped system rather than a generic chatbot. By combining assignment-aware prompting, role-based controls, and persistent conversation management, it supports more accountable and pedagogically aligned AI use in education.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- BLV NAV OBJECTS MODAL -->
 <div class="modal-overlay" id="modal-blvnavobjects" onclick="closeModalOnOverlay(event,'blvnavobjects')">
@@ -768,56 +584,32 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('blvnavobjects')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">HCI · Accessibility · Computer Vision</p>
-      <h2 class="modal-title">Identifying Crucial Objects in Blind and Low-Vision Individuals’ Navigation</h2>
-
+      <h2 class="modal-title">Identifying Crucial Objects in Blind and Low-Vision Individuals' Navigation</h2>
       <div class="modal-links">
-        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
-          ASSETS'24
-        </span>
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">ASSETS'24</span>
         <a class="pub-link" href="https://dl.acm.org/" target="_blank">Paper</a>
         <a class="pub-link" href="https://github.com/Shohan29531/BLV-Road-Nav-Accessibility" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Blind Users</span>
-        <span class="proj-tag">Low Vision</span>
-        <span class="proj-tag">Object Taxonomy</span>
-        <span class="proj-tag">Benchmarking</span>
-        <span class="proj-tag">Vision Models</span>
-        <span class="proj-tag">Accessibility</span>
+        <span class="proj-tag">Blind Users</span><span class="proj-tag">Low Vision</span>
+        <span class="proj-tag">Object Taxonomy</span><span class="proj-tag">Benchmarking</span>
+        <span class="proj-tag">Vision Models</span><span class="proj-tag">Accessibility</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/dataset-table.png"
-           alt="BLV navigation objects overview" />
-
+      <img class="modal-img" src="assets/dataset-table.png" alt="BLV navigation objects overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Blind and low-vision (BLV) individuals face major challenges when navigating urban and indoor environments, but existing computer vision datasets often miss many objects that are critical for safe movement.
-        </p>
-        <p>
-          Common datasets such as ImageNet and MS-COCO do not adequately represent hazards and navigation-relevant objects like overhanging branches, sidewalk pits, or bus stops, limiting the usefulness of current vision systems for accessibility.
-        </p>
+        <p>Blind and low-vision (BLV) individuals face major challenges when navigating urban and indoor environments, but existing computer vision datasets often miss many objects that are critical for safe movement.</p>
+        <p>Common datasets such as ImageNet and MS-COCO do not adequately represent hazards and navigation-relevant objects like overhanging branches, sidewalk pits, or bus stops, limiting the usefulness of current vision systems for accessibility.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/dataset-objects.png"
-           alt="BLV navigation object taxonomy" />
-
+      <img class="modal-img" src="assets/dataset-objects.png" alt="BLV navigation object taxonomy" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          This project created an accessibility-centered object taxonomy and benchmark specifically for BLV navigation.
-        </p>
+        <p>This project created an accessibility-centered object taxonomy and benchmark specifically for BLV navigation.</p>
         <ul>
           <li>Analyzed <strong>21 publicly available navigation videos</strong> involving BLV individuals.</li>
           <li>Identified <strong>80+ candidate objects</strong> that affected navigation through interaction, guidance, or hazard potential.</li>
@@ -827,11 +619,7 @@
           <li>Benchmarked <strong>seven vision models</strong> including detection, segmentation, and open-vocabulary systems.</li>
         </ul>
       </div>
-
-      <img class="modal-img"
-           src="assets/dataset-dist.png"
-           alt="BLV navigation object taxonomy" />
-
+      <img class="modal-img" src="assets/dataset-dist.png" alt="BLV navigation object taxonomy" />
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -841,12 +629,9 @@
           <li><strong>BLIP</strong> achieved the best reported result with an <strong>F1 score of 0.48</strong>, yet still missed important safety-relevant objects such as barrier stumps and tree branches.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          This work highlights a major gap between state-of-the-art vision systems and the real object awareness needed for safe BLV navigation. By releasing a benchmark dataset and object taxonomy grounded in accessibility needs, it lays the foundation for more inclusive navigation aids and future accessibility-focused vision models.
-        </p>
+        <p>This work highlights a major gap between state-of-the-art vision systems and the real object awareness needed for safe BLV navigation. By releasing a benchmark dataset and object taxonomy grounded in accessibility needs, it lays the foundation for more inclusive navigation aids and future accessibility-focused vision models.</p>
       </div>
     </div>
   </div>
@@ -858,56 +643,32 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('accmetrics')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">HCI · Accessibility · Non-Visual Interaction</p>
       <h2 class="modal-title">Quantifying Perceived Accessibility in Non-visual Interaction</h2>
-
       <div class="modal-links">
-        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">
-          CHI'23
-        </span>
+        <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">CHI'23</span>
         <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3544548.3581400" target="_blank">Paper</a>
         <a class="pub-link" href="https://github.com/Shohan29531/Accessibility-Metrics" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">C#</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">NVDA</span>
-        <span class="proj-tag">Accessibility APIs</span>
-        <span class="proj-tag">Probabilistic Modeling</span>
-        <span class="proj-tag">Desktop UI</span>
+        <span class="proj-tag">C#</span><span class="proj-tag">Python</span>
+        <span class="proj-tag">NVDA</span><span class="proj-tag">Accessibility APIs</span>
+        <span class="proj-tag">Probabilistic Modeling</span><span class="proj-tag">Desktop UI</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/metrics-complexity.png"
-           alt="Accessibility Metrics : Complexity" />
-
+      <img class="modal-img" src="assets/metrics-complexity.png" alt="Accessibility Metrics : Complexity" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Blind screen reader users rely on keyboard navigation to interact with desktop applications, but navigating menus, toolbars, dialogs, and nested interface structures is often slow, inconsistent, and frustrating.
-        </p>
-        <p>
-          Existing accessibility evaluation methods usually focus on compliance checks or labor-intensive user studies. They do not provide a scalable way to estimate <strong>perceived accessibility</strong> — how accessible an application actually feels to blind users during real non-visual interaction.
-        </p>
+        <p>Blind screen reader users rely on keyboard navigation to interact with desktop applications, but navigating menus, toolbars, dialogs, and nested interface structures is often slow, inconsistent, and frustrating.</p>
+        <p>Existing accessibility evaluation methods usually focus on compliance checks or labor-intensive user studies. They do not provide a scalable way to estimate <strong>perceived accessibility</strong> — how accessible an application actually feels to blind users during real non-visual interaction.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/metrics-survey.png"
-           alt="Accessibility Metrics : User Survey" />
-
+      <img class="modal-img" src="assets/metrics-survey.png" alt="Accessibility Metrics : User Survey" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          This project introduces a probabilistic interaction framework for estimating perceived accessibility from the structure of desktop interfaces and keystroke-based navigation behavior.
-        </p>
+        <p>This project introduces a probabilistic interaction framework for estimating perceived accessibility from the structure of desktop interfaces and keystroke-based navigation behavior.</p>
         <ul>
           <li>Built from findings of a formative study with <strong>11 blind participants</strong>.</li>
           <li>Uses <strong>UI hierarchies extracted through accessibility APIs</strong>, without needing pixel data or screen recordings.</li>
@@ -916,20 +677,7 @@
           <li>Benchmarks accessibility across <strong>11 commonly used Windows applications</strong>.</li>
         </ul>
       </div>
-
-      <img class="modal-img"
-           src="assets/metrics-usage.png"
-           alt="Accessibility Metrics : Usage" />
-
-      <p class="modal-section-title">Metrics</p>
-      <div class="modal-text">
-        <ul>
-          <li><strong>Complexity:</strong> expected keystrokes needed to reach a target UI element.</li>
-          <li><strong>Coverage:</strong> percentage of the interface reachable within a fixed keystroke budget.</li>
-          <li><strong>Reachability:</strong> fraction of the interface that can be accessed efficiently using available shortcuts and navigation structure.</li>
-        </ul>
-      </div>
-
+      <img class="modal-img" src="assets/metrics-usage.png" alt="Accessibility Metrics : Usage" />
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -939,17 +687,13 @@
           <li>Applications with high complexity and low coverage were consistently experienced as more frustrating and difficult to use.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          This work provides an automated, user-centered way to estimate perceived accessibility for non-visual desktop interaction. It helps developers and auditors compare applications, identify concrete navigation bottlenecks, and move accessibility evaluation toward scalable, interface-aware assessment rather than compliance alone.
-        </p>
+        <p>This work provides an automated, user-centered way to estimate perceived accessibility for non-visual desktop interaction. It helps developers and auditors compare applications, identify concrete navigation bottlenecks, and move accessibility evaluation toward scalable, interface-aware assessment rather than compliance alone.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- OPENACCAPI MODAL -->
 <div class="modal-overlay" id="modal-openaccapi" onclick="closeModalOnOverlay(event,'openaccapi')">
@@ -957,55 +701,30 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('openaccapi')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">HCI · Accessibility · XR Systems</p>
       <h2 class="modal-title">OpenAccAPI: An Open Source Accessibility API for 3D and VR Apps</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          Under Review
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">Under Review</span>
         <a class="pub-link" href="https://github.com/Shohan29531/OpenAccAPI" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Unity</span>
-        <span class="proj-tag">XR</span>
-        <span class="proj-tag">Accessibility API</span>
-        <span class="proj-tag">Screen Readers</span>
-        <span class="proj-tag">SteamVR</span>
-        <span class="proj-tag">Meta Quest Link</span>
+        <span class="proj-tag">Unity</span><span class="proj-tag">XR</span>
+        <span class="proj-tag">Accessibility API</span><span class="proj-tag">Screen Readers</span>
+        <span class="proj-tag">SteamVR</span><span class="proj-tag">Meta Quest Link</span>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/openacc-methods.png"
-           alt="OpenAccAPI overview" /> -->
-
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Blind and low-vision users face major barriers in Unity-based 3D and VR applications because these apps often lack screen reader support, accessible UI components, and effective keyboard navigation.
-        </p>
-        <p>
-          Existing accessibility plugins are fragmented, visually oriented, and usually must be built into the game during development, which makes them hard to retrofit and inadequate for non-visual interaction in existing immersive applications.
-        </p>
+        <p>Blind and low-vision users face major barriers in Unity-based 3D and VR applications because these apps often lack screen reader support, accessible UI components, and effective keyboard navigation.</p>
+        <p>Existing accessibility plugins are fragmented, visually oriented, and usually must be built into the game during development, which makes them hard to retrofit and inadequate for non-visual interaction in existing immersive applications.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/openacc-usage.png"
-           alt="OpenAccAPI architecture and workflow" />
-
+      <img class="modal-img" src="assets/openacc-usage.png" alt="OpenAccAPI architecture and workflow" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          OpenAccAPI is an extensible accessibility API for 3D and VR applications that exposes UI and scene elements to assistive technologies and supports retrofitting accessibility into existing Unity apps.
-        </p>
+        <p>OpenAccAPI is an extensible accessibility API for 3D and VR applications that exposes UI and scene elements to assistive technologies and supports retrofitting accessibility into existing Unity apps.</p>
         <ul>
           <li>Provides access to scene and interface elements for assistive tools.</li>
           <li>Enables features such as <strong>text-to-speech</strong>, <strong>UI text highlighting</strong>, <strong>non-visual navigation</strong>, and <strong>cursor orientation feedback</strong>.</li>
@@ -1013,11 +732,7 @@
           <li>Supports <strong>plugin injection into existing Unity games in three clicks</strong>.</li>
         </ul>
       </div>
-
-      <img class="modal-img"
-           src="assets/openacc-test.png"
-           alt="OpenAccAPI Tested" />
-
+      <img class="modal-img" src="assets/openacc-test.png" alt="OpenAccAPI Tested" />
       <p class="modal-section-title">Evaluation</p>
       <div class="modal-text">
         <ul>
@@ -1026,26 +741,13 @@
           <li>Small-scale studies with blindfolded users suggested better spatial awareness and navigation capability in 3D and VR settings.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">Outcomes</p>
-      <div class="modal-text">
-        <ul>
-          <li>Showed that accessibility features can be retrofitted into existing Unity applications rather than only added during development.</li>
-          <li>Demonstrated generalizability across a diverse set of real Unity games.</li>
-          <li>Reduced the effort needed for developers to add accessibility support in immersive environments.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          OpenAccAPI introduces a comprehensive accessibility API for 3D and VR apps aimed at non-visual interaction. It creates a practical path toward more accessible immersive software and lays groundwork for future research in accessible XR design and agent-based non-visual navigation.
-        </p>
+        <p>OpenAccAPI introduces a comprehensive accessibility API for 3D and VR apps aimed at non-visual interaction. It creates a practical path toward more accessible immersive software and lays groundwork for future research in accessible XR design and agent-based non-visual navigation.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- FORENSIGHT MODAL -->
 <div class="modal-overlay" id="modal-forensight" onclick="closeModalOnOverlay(event,'forensight')">
@@ -1053,55 +755,30 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('forensight')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">Computer Vision · Video Retrieval · Investigation Systems</p>
       <h2 class="modal-title">ForenSight: Local-First Video Investigation with Grounded Retrieval and Event-Centric Review</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          Systems &amp; Tools
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">Systems &amp; Tools</span>
         <a class="pub-link" href="https://github.com/Shohan29531/foren-sight" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">CLIP</span>
-        <span class="proj-tag">FAISS</span>
-        <span class="proj-tag">Streamlit</span>
-        <span class="proj-tag">OpenCV</span>
-        <span class="proj-tag">Video Retrieval</span>
-        <span class="proj-tag">Case Export</span>
+        <span class="proj-tag">CLIP</span><span class="proj-tag">FAISS</span>
+        <span class="proj-tag">Streamlit</span><span class="proj-tag">OpenCV</span>
+        <span class="proj-tag">Video Retrieval</span><span class="proj-tag">Case Export</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/foren-sight-overview.png"
-           alt="ForenSight overview" />
-
+      <img class="modal-img" src="assets/foren-sight-overview.png" alt="ForenSight overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Video investigations are often slow, repetitive, and difficult to standardize. Analysts need to search long recordings, identify meaningful incidents, compare events across cameras, and document evidence in a repeatable way.
-        </p>
-        <p>
-          Many practical workflows also need to remain lightweight and explainable, without requiring expensive model training or opaque end-to-end systems.
-        </p>
+        <p>Video investigations are often slow, repetitive, and difficult to standardize. Analysts need to search long recordings, identify meaningful incidents, compare events across cameras, and document evidence in a repeatable way.</p>
+        <p>Many practical workflows also need to remain lightweight and explainable, without requiring expensive model training or opaque end-to-end systems.</p>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/forensight-workflow.png"
-           alt="ForenSight workflow" /> -->
-
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          ForenSight is a local-first, no-training investigation pipeline that combines pretrained vision embeddings with lightweight, explainable rules for search, review, and incident analysis.
-        </p>
+        <p>ForenSight is a local-first, no-training investigation pipeline that combines pretrained vision embeddings with lightweight, explainable rules for search, review, and incident analysis.</p>
         <ul>
           <li><strong>Text-to-timestamp retrieval:</strong> CLIP text embeddings are matched against FAISS indexes built over sampled video frames.</li>
           <li><strong>Event timeline:</strong> detects change-point spikes from embedding deltas to surface likely moments of interest.</li>
@@ -1111,35 +788,9 @@
           <li><strong>Multi-camera correlation:</strong> links incidents across camera feeds using time-window gating and CLIP similarity of evidence frames.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">System Design</p>
-      <div class="modal-text">
-        <ul>
-          <li>Built as a <strong>Streamlit</strong> application.</li>
-          <li>Uses <strong>OpenCV</strong> and <strong>ffmpeg</strong> for video normalization, frame sampling, motion cues, and clip generation.</li>
-          <li>Stores projects under a local data directory and runs <strong>fully offline by default</strong>.</li>
-          <li>Supports optional <strong>OpenAI</strong> or <strong>Ollama</strong> integration, but does not require an LLM.</li>
-          <li>Exports investigation cases as a zip containing evidence clips, <code>case.json</code>, and a human-readable <code>report.html</code>.</li>
-        </ul>
-      </div>
-
-      <p class="modal-section-title">Workflow</p>
-      <div class="modal-text">
-        <ul>
-          <li>Upload a video and create a project.</li>
-          <li>Run the full pipeline to normalize video, sample frames, build CLIP embeddings, create a FAISS index, and propose events.</li>
-          <li>Define zones and lines for rule-based event generation.</li>
-          <li>Apply policy tags such as real-world datetime and after-hours status.</li>
-          <li>Correlate incidents across multiple projects or cameras.</li>
-          <li>Review evidence, assign severity and notes, and export a structured case package.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          ForenSight demonstrates a practical middle ground between manual video review and heavyweight learned surveillance systems. It emphasizes grounded retrieval, explainable event logic, reproducible case documentation, and local-first deployment for more transparent investigation workflows.
-        </p>
+        <p>ForenSight demonstrates a practical middle ground between manual video review and heavyweight learned surveillance systems. It emphasizes grounded retrieval, explainable event logic, reproducible case documentation, and local-first deployment for more transparent investigation workflows.</p>
       </div>
     </div>
   </div>
@@ -1151,55 +802,29 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('llmunlearning')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">LLMs · PEFT · Unlearning Systems</p>
       <h2 class="modal-title">LLM Unlearning with Synthetic Data and Parameter-Efficient Fine-Tuning</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          LLM Systems
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">LLM Systems</span>
         <a class="pub-link" href="https://github.com/Shohan29531/unlearn-llm-peft-synthetic" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">LoRA</span>
-        <span class="proj-tag">PEFT</span>
-        <span class="proj-tag">Synthetic Data</span>
-        <span class="proj-tag">vLLM</span>
-        <span class="proj-tag">Llama 3</span>
-        <span class="proj-tag">Multi-GPU</span>
+        <span class="proj-tag">LoRA</span><span class="proj-tag">PEFT</span>
+        <span class="proj-tag">Synthetic Data</span><span class="proj-tag">vLLM</span>
+        <span class="proj-tag">Llama 3</span><span class="proj-tag">Multi-GPU</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/unlearn-promo.png"
-           alt="LLM unlearning overview" />
-
+      <img class="modal-img" src="assets/unlearn-promo.png" alt="LLM unlearning overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Large language models can retain undesirable behaviors, biased patterns, or targeted knowledge that developers may later want to remove. Full retraining is expensive, slow, and often impractical for iterative experimentation.
-        </p>
-        <p>
-          This creates a need for lightweight unlearning methods that can selectively reduce unwanted model behavior while preserving the model’s broader capabilities.
-        </p>
+        <p>Large language models can retain undesirable behaviors, biased patterns, or targeted knowledge that developers may later want to remove. Full retraining is expensive, slow, and often impractical for iterative experimentation.</p>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/llm-unlearning-pipeline.png"
-           alt="LLM unlearning pipeline" /> -->
-
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          This project builds a parameter-efficient unlearning workflow using synthetic data generation and LoRA-based fine-tuning.
-        </p>
+        <p>This project builds a parameter-efficient unlearning workflow using synthetic data generation and LoRA-based fine-tuning.</p>
         <ul>
           <li>Generates targeted synthetic training data to represent the behavior or knowledge to be removed.</li>
           <li>Uses <strong>PEFT / LoRA adapters</strong> instead of full-model retraining.</li>
@@ -1207,36 +832,13 @@
           <li>Separates data generation, adapter training, and post-unlearning evaluation into a modular pipeline.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">System Design</p>
-      <div class="modal-text">
-        <ul>
-          <li>Built around a <strong>synthetic-data-driven forgetting workflow</strong>.</li>
-          <li>Uses <strong>adapter-based fine-tuning</strong> to localize changes and reduce compute cost.</li>
-          <li>Designed to work with modern open LLM stacks and scalable inference/training tools.</li>
-          <li>Supports verification steps to compare forgetting effectiveness against retained general utility.</li>
-        </ul>
-      </div>
-
-      <p class="modal-section-title">Outcomes</p>
-      <div class="modal-text">
-        <ul>
-          <li>Shows how targeted unlearning can be explored without expensive full-model retraining.</li>
-          <li>Provides a practical framework for testing whether undesired behavior can be reduced through synthetic supervision.</li>
-          <li>Emphasizes <strong>minimal model drift</strong> alongside effective forgetting.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          This project explores a practical path toward controllable, low-cost machine unlearning for large language models. By combining synthetic data with parameter-efficient fine-tuning, it supports faster experimentation on selective forgetting, safety adaptation, and post-hoc model editing.
-        </p>
+        <p>This project explores a practical path toward controllable, low-cost machine unlearning for large language models. By combining synthetic data with parameter-efficient fine-tuning, it supports faster experimentation on selective forgetting, safety adaptation, and post-hoc model editing.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- OTN MODAL -->
 <div class="modal-overlay" id="modal-otn" onclick="closeModalOnOverlay(event,'otn')">
@@ -1244,49 +846,25 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('otn')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">Computer Vision · 3D Worlds · Language Reasoning</p>
       <h2 class="modal-title">Object–Trajectory Narratives: A Structured Motion Grammar for Language Understanding of 3D and Virtual Worlds</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          ECCV'26 · Under Review
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">ECCV'26 · Under Review</span>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Unity</span>
-        <span class="proj-tag">3D Scenes</span>
-        <span class="proj-tag">Telemetry</span>
-        <span class="proj-tag">LLMs</span>
-        <span class="proj-tag">Motion Grammar</span>
-        <span class="proj-tag">Temporal Reasoning</span>
+        <span class="proj-tag">Unity</span><span class="proj-tag">3D Scenes</span>
+        <span class="proj-tag">Telemetry</span><span class="proj-tag">LLMs</span>
+        <span class="proj-tag">Motion Grammar</span><span class="proj-tag">Temporal Reasoning</span>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/otn-overview.png"
-           alt="OTN overview" /> -->
-
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Current video-language models are built around rendered pixels or estimated features such as flow and depth. In complex 3D and virtual environments, that makes scene understanding expensive and often brittle, because the models do not directly observe the object-level dynamics that actually drive the scene.
-        </p>
-        <p>
-          Interactive worlds already contain rich internal state — object identities, positions, scales, visibilities, hierarchies, colliders, and activation flags — but that information is rarely exposed in a form that language models can reason over cleanly.
-        </p>
+        <p>Current video-language models are built around rendered pixels or estimated features such as flow and depth. In complex 3D and virtual environments, that makes scene understanding expensive and often brittle, because the models do not directly observe the object-level dynamics that actually drive the scene.</p>
+        <p>Interactive worlds already contain rich internal state — object identities, positions, scales, visibilities, hierarchies, colliders, and activation flags — but that information is rarely exposed in a form that language models can reason over cleanly.</p>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/otn-pipeline.png"
-           alt="OTN pipeline" /> -->
-
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          OTN converts raw engine telemetry into a structured, language-ready representation of scene dynamics. Instead of asking a model to infer motion from pixels, it provides an object-centric motion grammar that explicitly summarizes how entities appear, move, and interact over time.
-        </p>
+        <p>OTN converts raw engine telemetry into a structured, language-ready representation of scene dynamics. Instead of asking a model to infer motion from pixels, it provides an object-centric motion grammar that explicitly summarizes how entities appear, move, and interact over time.</p>
         <ul>
           <li>Logs per-object telemetry such as positions, scales, visibilities, hierarchy, and semantic properties.</li>
           <li>Builds both quantitative and symbolic layers, including motion statistics, phase timelines, interaction summaries, outlier events, and deterministic textual narratives.</li>
@@ -1294,32 +872,17 @@
           <li>Uses a Unity plugin for logging, while keeping the overall representation general enough for other engines with comparable state access.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">Key Representation</p>
-      <div class="modal-text">
-        <ul>
-          <li><strong>Numeric layer:</strong> path length, displacement, speed, visibility ratio, vertical change, and relative size.</li>
-          <li><strong>Symbolic layer:</strong> motion phases such as ascent, descent, horizontal travel, and stillness, organized into a phase timeline.</li>
-          <li><strong>Narrative layer:</strong> deterministic summaries of object motion, relations, salient events, and inferred semantic roles.</li>
-          <li><strong>Pruning layer:</strong> ranks objects by motion salience so the final description stays compact and focused.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
           <li>A relatively small language model, around <strong>7B parameters</strong>, can use OTN text alone for zero-shot scene description and temporal reasoning.</li>
           <li>The paper reports performance that is <strong>comparable to, or better than, much larger video-language systems</strong> while using far less compute and latency.</li>
           <li>Light fine-tuning on structured OTN data further improves temporal coherence, reference consistency, and object grounding.</li>
-          <li>The resulting representation is compact, interpretable, and readable by both language models and human analysts.</li>
         </ul>
       </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          OTN offers a different interface between 3D simulation and language understanding: instead of scaling bigger pixel-based models, it leverages engine-native structure to make reasoning cheaper, more explicit, and easier to audit. It also opens a path toward cross-engine scene understanding in platforms such as Unity, Unreal, and Godot.
-        </p>
+        <p>OTN offers a different interface between 3D simulation and language understanding: instead of scaling bigger pixel-based models, it leverages engine-native structure to make reasoning cheaper, more explicit, and easier to audit.</p>
       </div>
     </div>
   </div>
@@ -1331,49 +894,27 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('temporalvos')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">Computer Vision · Video Object Segmentation · Learning Objectives</p>
       <h2 class="modal-title">Video Object Segmentation with Explicit Temporal Loss Function</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          CVPR'26 · Under Review
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">CVPR'26 · Under Review</span>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">PyTorch</span>
-        <span class="proj-tag">VOS</span>
-        <span class="proj-tag">AOT</span>
-        <span class="proj-tag">DeAOT</span>
-        <span class="proj-tag">HMM</span>
-        <span class="proj-tag">Temporal Consistency</span>
+        <span class="proj-tag">PyTorch</span><span class="proj-tag">VOS</span>
+        <span class="proj-tag">AOT</span><span class="proj-tag">DeAOT</span>
+        <span class="proj-tag">HMM</span><span class="proj-tag">Temporal Consistency</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/vos-promo.png"
-           alt="Temporal VOS loss overview" />
-
+      <img class="modal-img" src="assets/vos-promo.png" alt="Temporal VOS loss overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          Modern video object segmentation models use memory modules and propagation mechanisms to maintain temporal correspondence, but they are still trained mostly with frame-level losses such as cross-entropy and Tversky loss.
-        </p>
-        <p>
-          That creates a mismatch: the architecture is temporal, but the training signal is largely static. As a result, models often fail in scenarios where temporal consistency matters most, especially with small objects, heavy occlusion, and objects that disappear and later re-emerge.
-        </p>
+        <p>Modern video object segmentation models use memory modules and propagation mechanisms to maintain temporal correspondence, but they are still trained mostly with frame-level losses such as cross-entropy and Tversky loss.</p>
+        <p>That creates a mismatch: the architecture is temporal, but the training signal is largely static. As a result, models often fail in scenarios where temporal consistency matters most, especially with small objects, heavy occlusion, and objects that disappear and later re-emerge.</p>
       </div>
-
-      <img class="modal-img"
-           src="assets/vos-pipeline.png"
-           alt="Temporal VOS loss pipeline" />
-
+      <img class="modal-img" src="assets/vos-pipeline.png" alt="Temporal VOS loss pipeline" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          This project introduces an explicit temporal consistency loss that can wrap around existing semi-supervised VOS training pipelines without requiring architectural changes.
-        </p>
+        <p>This project introduces an explicit temporal consistency loss that can wrap around existing semi-supervised VOS training pipelines without requiring architectural changes.</p>
         <ul>
           <li>Represents per-frame object presence and absence as binary vectors over all tracked objects.</li>
           <li>Models temporal consistency through a <strong>Hidden Markov Model</strong>.</li>
@@ -1382,17 +923,6 @@
           <li>Integrates with standard losses through a weighted combination instead of replacing pixel-level supervision.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">Implementation</p>
-      <div class="modal-text">
-        <ul>
-          <li>Evaluated on <strong>AOT-T</strong> and <strong>DeAOT-T</strong> models.</li>
-          <li>Tested on <strong>DAVIS 2017</strong>, <strong>YouTube-VOS 2019</strong>, and <strong>LVOS</strong>.</li>
-          <li>Uses a dynamic schedule for the temporal-loss weight so temporal structure is learned early and pixel refinement dominates later in training.</li>
-          <li>Implemented as a <strong>model-agnostic training wrapper</strong>, making it easy to plug into existing VOS pipelines.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -1402,24 +932,13 @@
           <li>An ensemble of baseline and temporal-loss-trained models achieved up to <strong>3.4%</strong> improvement on DAVIS and additional gains on YouTube-VOS and LVOS.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">Tradeoff</p>
-      <div class="modal-text">
-        <p>
-          The temporal loss improves robustness in temporally difficult sequences, but can reduce performance when multiple visually similar objects interact closely, because stronger temporal smoothness can sometimes increase identity confusion. The ensemble strategy was introduced to balance these complementary strengths.
-        </p>
-      </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          This work shifts part of temporal reasoning from architecture design into the training objective itself. By making temporal consistency an explicit optimization target, it offers a simple and reusable way to improve VOS robustness in real-world challenging videos without redesigning the underlying model.
-        </p>
+        <p>This work shifts part of temporal reasoning from architecture design into the training objective itself. By making temporal consistency an explicit optimization target, it offers a simple and reusable way to improve VOS robustness in real-world challenging videos without redesigning the underlying model.</p>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- PAALSS ANALYZER MODAL -->
 <div class="modal-overlay" id="modal-paalssanalyzer" onclick="closeModalOnOverlay(event,'paalssanalyzer')">
@@ -1427,55 +946,29 @@
     <div class="modal-header modal-header-noimage">
       <button class="modal-close" onclick="closeModal('paalssanalyzer')">✕</button>
     </div>
-
     <div class="modal-body">
       <p class="modal-cat">LLMs · Clinical Drafting · AAC Analysis</p>
       <h2 class="modal-title">PAALSS Analyzer: Draft PAALSS-Style Analysis from Spanish Aided AAC Transcripts</h2>
-
       <div class="modal-links">
-        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">
-          Research Tool
-        </span>
+        <span class="proj-badge preprint" style="font-size:.75rem;padding:.2rem .6rem;">Research Tool</span>
         <a class="pub-link" href="https://github.com/Shohan29531/paalss-analyzer" target="_blank">
-          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:currentColor;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
-
       <div class="modal-tags">
-        <span class="proj-tag">Streamlit</span>
-        <span class="proj-tag">Ollama</span>
-        <span class="proj-tag">AAC</span>
-        <span class="proj-tag">Spanish</span>
-        <span class="proj-tag">Clinical Drafting</span>
-        <span class="proj-tag">DOCX Export</span>
+        <span class="proj-tag">Streamlit</span><span class="proj-tag">Ollama</span>
+        <span class="proj-tag">AAC</span><span class="proj-tag">Spanish</span>
+        <span class="proj-tag">Clinical Drafting</span><span class="proj-tag">DOCX Export</span>
       </div>
-
-      <img class="modal-img"
-           src="assets/paalss-overview.png"
-           alt="PAALSS Analyzer overview" />
-
+      <img class="modal-img" src="assets/paalss-overview.png" alt="PAALSS Analyzer overview" />
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
-        <p>
-          PAALSS-style analysis of aided AAC transcripts is detail-heavy and formatting-sensitive. Researchers and clinicians often need to clean transcripts, structure utterances consistently, prompt the model carefully, and turn the output into a usable draft report.
-        </p>
-        <p>
-          A general-purpose chatbot does not provide enough control over transcript formatting, prompt structure, model selection, or export workflow for this kind of domain-specific drafting task.
-        </p>
+        <p>PAALSS-style analysis of aided AAC transcripts is detail-heavy and formatting-sensitive. Researchers and clinicians often need to clean transcripts, structure utterances consistently, prompt the model carefully, and turn the output into a usable draft report.</p>
       </div>
-
-      <!-- <img class="modal-img"
-           src="assets/paalss-analyzer-workflow.png"
-           alt="PAALSS Analyzer workflow" /> -->
-
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>
-          PAALSS Analyzer is a lightweight Streamlit app that turns transcript analysis into a controlled workflow rather than an ad hoc chat interaction.
-        </p>
+        <p>PAALSS Analyzer is a lightweight Streamlit app that turns transcript analysis into a controlled workflow rather than an ad hoc chat interaction.</p>
         <ul>
           <li>Uploads <strong>.docx</strong> or <strong>.txt</strong> transcripts.</li>
           <li>Extracts and pre-fills a numbered transcript block of <strong>Enunciados</strong>.</li>
@@ -1484,34 +977,9 @@
           <li>Sends transcript plus prompt to a selected <strong>Ollama</strong> model and returns a PAALSS-style report.</li>
         </ul>
       </div>
-
-      <p class="modal-section-title">System Design</p>
-      <div class="modal-text">
-        <ul>
-          <li>Built with <strong>Streamlit</strong>.</li>
-          <li>Supports both <strong>Ollama Cloud</strong> and <strong>local Ollama</strong>.</li>
-          <li>Provides an <strong>English / Español</strong> UI toggle, while keeping the system prompt unchanged.</li>
-          <li>Uses explicit model selection with a save step, persisting the chosen model locally in <code>.paalss_settings.json</code>.</li>
-          <li>Supports optional streamed generation and downloadable <strong>.docx</strong> export.</li>
-        </ul>
-      </div>
-
-      <p class="modal-section-title">Workflow</p>
-      <div class="modal-text">
-        <ul>
-          <li>Upload a transcript in <code>.docx</code> or <code>.txt</code> format.</li>
-          <li>Review and edit the numbered transcript block.</li>
-          <li>Select a model and save it explicitly.</li>
-          <li>Adjust generation settings such as temperature and optional streaming.</li>
-          <li>Run analysis and export the resulting report as <code>.docx</code>.</li>
-        </ul>
-      </div>
-
       <p class="modal-section-title">Impact</p>
       <div class="modal-text">
-        <p>
-          PAALSS Analyzer packages transcript parsing, prompt control, bilingual interface support, model selection, and document export into a focused research workflow. It is best framed as a drafting-support tool for structured AAC analysis, not as a diagnostic system.
-        </p>
+        <p>PAALSS Analyzer packages transcript parsing, prompt control, bilingual interface support, model selection, and document export into a focused research workflow. It is best framed as a drafting-support tool for structured AAC analysis, not as a diagnostic system.</p>
       </div>
     </div>
   </div>
