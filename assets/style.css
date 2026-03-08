@@ -24,9 +24,9 @@
   --shadow-sm:   0 1px 4px rgba(0,0,0,.06);
   --shadow:      0 4px 16px rgba(0,0,0,.09);
   --shadow-lg:   0 8px 30px rgba(0,0,0,.12);
-  --font-serif:  'Playfair Display', Georgia, serif;
---font-serif: 'Roboto', sans-serif;
---font-sans:  'Roboto', sans-serif;
+  --font-serif:  'Playfair Display', Georgia, serif; 
+  --font-serif: 'Roboto', sans-serif;
+  --font-sans:  'Roboto', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,15 +85,26 @@ nav {
   margin-bottom: 2.2rem;
 }
 .sec-divider {
-  font-size: .7rem; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--text-3);
-  display: flex; align-items: center; gap: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
   margin: 2rem 0 1rem;
+  text-align: center;
 }
+
+.sec-divider::before,
 .sec-divider::after {
-  content: ''; flex: 1;
-  height: 1px; background: var(--border);
+  content: '';
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background: var(--border);
 }
 
 /* ── HOME HERO ── */
@@ -264,9 +275,18 @@ nav {
 
 /* ── PORTFOLIO GRID ── */
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.2rem;
+}
+
+.portfolio-grid > .proj-card,
+.portfolio-grid > .port-card {
+  width: calc((100% - 2.4rem) / 3);
+  max-width: calc((100% - 2.4rem) / 3);
+  min-width: 270px;
+  flex: 0 0 calc((100% - 2.4rem) / 3);
 }
 
 /* existing project cards */
@@ -366,7 +386,7 @@ nav {
   border: 1px solid #c5d5e8;
 }
 
-/* ── IMAGE-BASED PORTFOLIO CARDS (matches proj-card style) ── */
+/* ── IMAGE-BASED PORTFOLIO CARDS ── */
 .port-card {
   background: var(--surface);
   border-radius: var(--radius);
@@ -451,6 +471,25 @@ nav {
   font-size: .72rem;
   color: var(--text-3);
   font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid > .proj-card,
+  .portfolio-grid > .port-card {
+    width: calc((100% - 1.2rem) / 2);
+    max-width: calc((100% - 1.2rem) / 2);
+    flex: 0 0 calc((100% - 1.2rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid > .proj-card,
+  .portfolio-grid > .port-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 0 0 100%;
+  }
 }
 
 /* ── EXPERIENCE ── */
