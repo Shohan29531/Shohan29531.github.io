@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAALSS Analyzer — Promo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: #050A10;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .canvas {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #050A10;
+    overflow: hidden;
+  }
+
+  /* Grid background */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,210,150,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,210,150,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Glow orbs */
+  .orb1 {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,220,150,0.18) 0%, transparent 70%);
+    top: -120px;
+    right: 80px;
+  }
+  .orb2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,120,255,0.14) 0%, transparent 70%);
+    bottom: -100px;
+    left: 60px;
+  }
+  .orb3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,100,255,0.1) 0%, transparent 70%);
+    top: 180px;
+    left: 420px;
+  }
+
+  /* Scan line */
+  .scanline {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,220,150,0.4), transparent);
+    top: 50%;
+  }
+
+  /* Horizontal accent lines */
+  .hline-top {
+    position: absolute;
+    top: 68px;
+    left: 64px;
+    right: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,210,150,0.6), rgba(0,210,150,0.05) 60%, transparent);
+  }
+  .hline-bottom {
+    position: absolute;
+    bottom: 68px;
+    left: 64px;
+    right: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,210,150,0.6), rgba(0,210,150,0.05) 60%, transparent);
+  }
+
+  /* Corner brackets */
+  .bracket { position: absolute; width: 24px; height: 24px; }
+  .bracket.tl { top: 56px; left: 56px; border-top: 2px solid rgba(0,220,150,0.7); border-left: 2px solid rgba(0,220,150,0.7); }
+  .bracket.tr { top: 56px; right: 56px; border-top: 2px solid rgba(0,220,150,0.7); border-right: 2px solid rgba(0,220,150,0.7); }
+  .bracket.bl { bottom: 56px; left: 56px; border-bottom: 2px solid rgba(0,220,150,0.7); border-left: 2px solid rgba(0,220,150,0.7); }
+  .bracket.br { bottom: 56px; right: 56px; border-bottom: 2px solid rgba(0,220,150,0.7); border-right: 2px solid rgba(0,220,150,0.7); }
+
+  /* Main content */
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    gap: 64px;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,220,150,0.08);
+    border: 1px solid rgba(0,220,150,0.25);
+    border-radius: 3px;
+    padding: 5px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(0,220,150,0.85);
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0,220,150,0.9);
+    box-shadow: 0 0 6px rgba(0,220,150,0.8);
+  }
+
+  .title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 86px;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .title span {
+    display: block;
+    background: linear-gradient(135deg, #00DC96 0%, #00AAFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.42);
+    max-width: 360px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 4px;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .stat-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #00DC96;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+  }
+
+  /* Right panel — mock UI */
+  .right {
+    width: 460px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .panel {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,220,150,0.04) inset;
+  }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #febc2e; }
+  .dot.g { background: #28c840; }
+  .panel-title {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.1em;
+    margin-left: 4px;
+  }
+
+  .panel-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  /* Chart bars */
+  .chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .bar-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    width: 58px;
+    flex-shrink: 0;
+  }
+  .bar-track {
+    flex: 1;
+    height: 7px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #00DC96, #00AAFF);
+  }
+  .bar-val {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    width: 32px;
+    text-align: right;
+  }
+
+  /* Score circle */
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    background: rgba(0,220,150,0.04);
+    border: 1px solid rgba(0,220,150,0.12);
+    border-radius: 6px;
+  }
+  .score-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,220,150,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #00DC96;
+    flex-shrink: 0;
+    background: rgba(0,220,150,0.06);
+  }
+  .score-info { flex: 1; }
+  .score-title { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; margin-bottom: 3px; }
+  .score-sub { font-size: 9px; color: rgba(255,255,255,0.28); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* Code snippet */
+  .code-block {
+    background: rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 10px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.25);
+    border-left: 2px solid rgba(0,220,150,0.3);
+  }
+  .code-block .k { color: #00DC96; }
+  .code-block .s { color: #00AAFF; }
+  .code-block .c { color: rgba(255,255,255,0.18); }
+
+  /* Floating badge */
+  .badge {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    background: linear-gradient(135deg, #00DC96, #00AAFF);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #050A10;
+    text-transform: uppercase;
+    box-shadow: 0 8px 24px rgba(0,220,150,0.3);
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 34px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .github-tag {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+  .github-tag span { color: rgba(0,220,150,0.5); }
+
+  /* Noise overlay */
+  .noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="grid"></div>
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+  <div class="orb3"></div>
+  <div class="scanline"></div>
+  <div class="hline-top"></div>
+  <div class="hline-bottom"></div>
+  <div class="bracket tl"></div>
+  <div class="bracket tr"></div>
+  <div class="bracket bl"></div>
+  <div class="bracket br"></div>
+
+  <div class="content">
+    <div class="left">
+      <div class="tag">Open Source Tool</div>
+      <div class="title">
+        PAALSS<br>
+        <span>Analyzer</span>
+      </div>
+      <div class="desc">
+        A powerful analysis framework for<br>
+        structured data inspection, pattern<br>
+        detection &amp; reporting.
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">v1.0</div>
+          <div class="stat-label">Release</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">Python</div>
+          <div class="stat-label">Stack</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">MIT</div>
+          <div class="stat-label">License</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="badge">Analysis Report</div>
+      <div class="panel">
+        <div class="panel-header">
+          <div class="dot r"></div>
+          <div class="dot y"></div>
+          <div class="dot g"></div>
+          <span class="panel-title">paalss_analyzer — output.json</span>
+        </div>
+        <div class="panel-body">
+
+          <div class="score-row">
+            <div class="score-circle">94</div>
+            <div class="score-info">
+              <div class="score-title">Overall Score</div>
+              <div class="score-sub">Passed · 47 checks</div>
+            </div>
+          </div>
+
+          <div class="chart">
+            <div class="bar-row">
+              <div class="bar-label">Coverage</div>
+              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+              <div class="bar-val">88%</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label">Accuracy</div>
+              <div class="bar-track"><div class="bar-fill" style="width:96%"></div></div>
+              <div class="bar-val">96%</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label">Latency</div>
+              <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+              <div class="bar-val">72%</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label">Recall</div>
+              <div class="bar-track"><div class="bar-fill" style="width:91%"></div></div>
+              <div class="bar-val">91%</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <span class="k">from</span> paalss <span class="k">import</span> Analyzer<br>
+            <span class="c"># Initialize with your dataset</span><br>
+            result = Analyzer.<span class="s">run</span>(data, config)
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="github-tag">github.com/<span>Shohan29531</span>/paalss-analyzer</div>
+    <div class="github-tag">Built for <span>research &amp; portfolio</span></div>
+  </div>
+
+  <div class="noise"></div>
+</div>
+</body>
+</html>

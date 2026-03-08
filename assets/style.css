@@ -495,7 +495,7 @@ nav {
 /* ── EXPERIENCE ── */
 .exp-item {
   display: grid; grid-template-columns: 1fr auto;
-  gap: .5rem; align-items: start;
+  gap: .7rem; align-items: start;
   background: var(--surface);
   padding: 1.3rem 1.5rem;
   border-radius: var(--radius);
@@ -513,7 +513,7 @@ nav {
 /* ── EDUCATION ── */
 .edu-card {
   display: grid; grid-template-columns: 1fr auto;
-  gap: .5rem; align-items: start;
+  gap: .7rem; align-items: start;
   background: var(--surface);
   padding: 1.3rem 1.5rem;
   border-radius: var(--radius);
