@@ -422,7 +422,7 @@ nav {
 .exp-org  { font-size: .88rem; color: var(--text-3); margin-top: .1rem; }
 .exp-date { font-size: .8rem; font-family: var(--font-mono); color: var(--text-3); white-space: nowrap; margin-top: .15rem; }
 .exp-bullets { list-style: none; margin-top: .8rem; display: flex; flex-direction: column; gap: .4rem; grid-column: 1 / -1; }
-.exp-bullets li { font-size: .875rem; color: var(--text); line-height: 1.2; padding-left: 1.1em; position: relative; }
+.exp-bullets li { font-size: .875rem; color: var(--text); line-height: 1.35; padding-left: 1.1em; position: relative; }
 .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .8rem; top: .05em; }
 
 /* ── EDUCATION ── */
