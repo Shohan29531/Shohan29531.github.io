@@ -170,7 +170,7 @@ nav {
 /* ── ALERT BANNER ── */
 .banner {
   background: var(--text-2);
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255);
   padding: .9rem 1rem;
   border-radius: var(--radius);
   font-size: .9rem;
