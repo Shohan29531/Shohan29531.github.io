@@ -358,17 +358,20 @@
         <p>Large multimodal models (LMMs) like GPT-4V can process text, images, and video — but unlike humans, their outputs often lack common sense and can be inconsistent across modalities. In multi-label video object recognition, a model might identify an object in one frame but miss it in the next, even when frames are nearly identical.</p>
         <p>Automated metrics like F1 or average precision cannot capture such inconsistencies, making human evaluation essential. But there was no simple tool that let non-experts assess whether a model was actually performing reliably.</p>
       </div>
-      <img class="modal-img" src="assets/ikiwisi-patterns.png" alt="IKIWISI heatmap patterns" />
+
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>IKIWISI (I-Know-It-When-I-See-It) is a lightweight, intuitive tool that visualizes LMM prediction inconsistencies across video frames via binary heatmaps:</p>
+        <p>IKIWISI (I-Know-It-When-I-See-It) is a lightweight, intuitive tool that visualizes LMM prediction inconsistencies across video frames via binary heatmaps (Figure 1):</p>
         <ul>
           <li>The user selects objects of interest and a video from dropdowns.</li>
           <li>Up to 16 keyframes are displayed in an image container for inspection.</li>
           <li>A binary heatmap represents model predictions — each row is an object, each column a video frame.</li>
-          <li>High-level patterns in the heatmap let users quickly judge model reliability without any ML expertise.</li>
+          <li>High-level patterns in the heatmap let users quickly judge model reliability without any ML expertise (Figures 12 and 13).</li>
         </ul>
       </div>
+
+      <img class="modal-img" src="assets/ikiwisi-patterns.png" alt="IKIWISI heatmap patterns" />
+
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -399,7 +402,6 @@
         <span class="proj-badge award" style="font-size:.75rem;padding:.2rem .6rem;">🏆 Best Paper Honorable Mention · UIST'24</span>
         <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3654777.3676396" target="_blank">Paper</a>
         <a class="pub-link" href="https://www.youtube.com/watch?v=vLtbUi_a_f8" target="_blank">Promo</a>
-        <a class="pub-link" href="https://www.youtube.com/watch?v=iUMU6dKf3NM" target="_blank">Presentation</a>
       </div>
       <div class="modal-tags">
         <span class="proj-tag">Hardware</span><span class="proj-tag">Blind Users</span>
