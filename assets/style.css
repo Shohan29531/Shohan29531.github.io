@@ -232,7 +232,7 @@ nav {
 .pub-year-group { margin-bottom: 2.5rem; }
 .year-tag {
   font-family: var(--font-mono);
-  font-size: .78rem; font-weight: 500;
+  font-size: 1rem; font-weight: 500;
   color: var(--text-3); letter-spacing: .05em;
   border-bottom: 1px solid var(--border);
   padding-bottom: .4rem; margin-bottom: 1rem;
