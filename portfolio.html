@@ -485,8 +485,8 @@
         <ul>
           <li>Operates on <strong>DOM-based UI metadata</strong>, not raw pixels.</li>
           <li>Uses <strong>nonlinear optimization</strong> with GEKKO/IPOPT to restructure layouts under element constraints.</li>
-          <li>Compacts screens through a <strong>bottom-up hierarchical traversal</strong> for local flexibility and global consistency.</li>
-          <li>Supports <strong>fullscreen</strong>, <strong>window</strong>, and <strong>fisheye</strong> magnifier modes.</li>
+          <li>Compacts screens through a <strong>bottom-up hierarchical traversal</strong> for local flexibility and global consistency (Figure 17).</li>
+          <li>Supports <strong>fullscreen</strong>, <strong>window</strong>, and <strong>fisheye</strong> magnifier modes (Figure 1).</li>
           <li>Includes a rendering backend to reconstruct the modified layouts visually.</li>
         </ul>
       </div>
@@ -545,7 +545,7 @@
       </div>
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>TeachPilot is a teacher-guided LLM assistant that changes behavior per assignment and applies instructor-defined guardrails before sending requests to the model.</p>
+        <p>TeachPilot (shown in the demo above) is a teacher-guided LLM assistant that changes behavior per assignment and applies instructor-defined guardrails before sending requests to the model.</p>
         <ul>
           <li>Uses a <strong>two-part prompting structure</strong>: a base system prompt plus an assignment-specific prompt.</li>
           <li>Supports <strong>assignment-scoped conversations</strong>, so each chat is tied to the active coursework context.</li>
@@ -615,19 +615,19 @@
           <li>Analyzed <strong>21 publicly available navigation videos</strong> involving BLV individuals.</li>
           <li>Identified <strong>80+ candidate objects</strong> that affected navigation through interaction, guidance, or hazard potential.</li>
           <li>Refined the list through a <strong>6-person focus group</strong> with blind, low-vision, and sighted accessibility experts.</li>
-          <li>Produced a final set of <strong>90 objects across 15 semantic categories</strong>.</li>
+          <li>Produced a final set of <strong>90 objects across 15 semantic categories </strong>(Table 1, Figure 2).</li>
           <li>Labeled <strong>31 video segments</strong> with object presence and absence annotations.</li>
-          <li>Benchmarked <strong>seven vision models</strong> including detection, segmentation, and open-vocabulary systems.</li>
+          <li>Benchmarked <strong>seven vision models</strong> including detection, segmentation, and open-vocabulary systems (Figure 3).</li>
         </ul>
       </div>
       <img class="modal-img" src="assets/dataset-dist.png" alt="BLV navigation object taxonomy" />
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
-          <li>Modern vision models performed poorly on many accessibility-critical objects.</li>
-          <li>Detection and segmentation models typically recognized only <strong>12–15 objects</strong>.</li>
+          <li>Modern vision models performed poorly on many accessibility-critical objects (Figure 3).</li>
+          <li>Detection and segmentation models typically recognized only <strong>12–15 objects (Figure 3)</strong>.</li>
           <li>Open-vocabulary models performed better, but still had incomplete coverage.</li>
-          <li><strong>BLIP</strong> achieved the best reported result with an <strong>F1 score of 0.48</strong>, yet still missed important safety-relevant objects such as barrier stumps and tree branches.</li>
+          <li><strong>BLIP</strong> achieved the best reported result with an <strong>F1 score of 0.48</strong>, yet still missed important safety-relevant objects such as barrier stumps and tree branches (Figure 3).</li>
         </ul>
       </div>
       <p class="modal-section-title">Impact</p>
@@ -660,25 +660,29 @@
         <span class="proj-tag">NVDA</span><span class="proj-tag">Accessibility APIs</span>
         <span class="proj-tag">Probabilistic Modeling</span><span class="proj-tag">Desktop UI</span>
       </div>
-      <img class="modal-img" src="assets/metrics-complexity.png" alt="Accessibility Metrics : Complexity" />
+
+      <img class="modal-img" src="assets/metrics-survey.png" alt="Accessibility Metrics : User Survey" />
+
       <p class="modal-section-title">Problem</p>
       <div class="modal-text">
         <p>Blind screen reader users rely on keyboard navigation to interact with desktop applications, but navigating menus, toolbars, dialogs, and nested interface structures is often slow, inconsistent, and frustrating.</p>
         <p>Existing accessibility evaluation methods usually focus on compliance checks or labor-intensive user studies. They do not provide a scalable way to estimate <strong>perceived accessibility</strong> — how accessible an application actually feels to blind users during real non-visual interaction.</p>
       </div>
-      <img class="modal-img" src="assets/metrics-survey.png" alt="Accessibility Metrics : User Survey" />
+
+      <img class="modal-img" src="assets/metrics-complexity.png" alt="Accessibility Metrics : Complexity" />
+
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
         <p>This project introduces a probabilistic interaction framework for estimating perceived accessibility from the structure of desktop interfaces and keystroke-based navigation behavior.</p>
         <ul>
-          <li>Built from findings of a formative study with <strong>11 blind participants</strong>.</li>
+          <li>Built from findings of a formative study with <strong>11 blind participants (Figure 2)</strong>.</li>
           <li>Uses <strong>UI hierarchies extracted through accessibility APIs</strong>, without needing pixel data or screen recordings.</li>
           <li>Models navigation effort through a <strong>probabilistic interaction model</strong> and keystroke cost analysis.</li>
           <li>Defines three task-agnostic metrics: <strong>Complexity</strong>, <strong>Coverage</strong>, and <strong>Reachability</strong>.</li>
-          <li>Benchmarks accessibility across <strong>11 commonly used Windows applications</strong>.</li>
+          <li>Benchmarks accessibility across <strong>11 commonly used Windows applications (Figure 10)</strong>.</li>
         </ul>
       </div>
-      <img class="modal-img" src="assets/metrics-usage.png" alt="Accessibility Metrics : Usage" />
+      <!-- <img class="modal-img" src="assets/metrics-usage.png" alt="Accessibility Metrics : Usage" /> -->
       <p class="modal-section-title">Outcomes</p>
       <div class="modal-text">
         <ul>
@@ -728,17 +732,17 @@
         <p>OpenAccAPI is an extensible accessibility API for 3D and VR applications that exposes UI and scene elements to assistive technologies and supports retrofitting accessibility into existing Unity apps.</p>
         <ul>
           <li>Provides access to scene and interface elements for assistive tools.</li>
-          <li>Enables features such as <strong>text-to-speech</strong>, <strong>UI text highlighting</strong>, <strong>non-visual navigation</strong>, and <strong>cursor orientation feedback</strong>.</li>
+          <li>Enables features such as <strong>text-to-speech</strong>, <strong>UI text highlighting</strong>, <strong>non-visual navigation</strong>, and <strong>cursor orientation feedback</strong> (Figure 6).</li>
           <li>Includes a <strong>reference implementation for Unity</strong>.</li>
-          <li>Supports <strong>plugin injection into existing Unity games in three clicks</strong>.</li>
+          <li>Supports <strong>plugin injection into existing Unity games in three clicks</strong> (Figure 7).</li>
         </ul>
       </div>
       <img class="modal-img" src="assets/openacc-test.png" alt="OpenAccAPI Tested" />
       <p class="modal-section-title">Evaluation</p>
       <div class="modal-text">
         <ul>
-          <li>Tested on <strong>15 popular Unity games on Steam</strong>.</li>
-          <li>Most features worked smoothly in <strong>12 of the 15 games</strong>.</li>
+          <li>Tested on <strong>15 popular Unity games on Steam</strong> (Table 2).</li>
+          <li>Most features worked smoothly in <strong>12 of the 15 games</strong> (Table 2).</li>
           <li>Small-scale studies with blindfolded users suggested better spatial awareness and navigation capability in 3D and VR settings.</li>
         </ul>
       </div>
@@ -779,7 +783,7 @@
       </div>
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>ForenSight is a local-first, no-training investigation pipeline that combines pretrained vision embeddings with lightweight, explainable rules for search, review, and incident analysis.</p>
+        <p>ForenSight (shwon in the demo above) is a local-first, no-training investigation pipeline that combines pretrained vision embeddings with lightweight, explainable rules for search, review, and incident analysis.</p>
         <ul>
           <li><strong>Text-to-timestamp retrieval:</strong> CLIP text embeddings are matched against FAISS indexes built over sampled video frames.</li>
           <li><strong>Event timeline:</strong> detects change-point spikes from embedding deltas to surface likely moments of interest.</li>
@@ -915,7 +919,7 @@
       <img class="modal-img" src="assets/vos-pipeline.png" alt="Temporal VOS loss pipeline" />
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>This project introduces an explicit temporal consistency loss that can wrap around existing semi-supervised VOS training pipelines without requiring architectural changes.</p>
+        <p>This project introduces an explicit temporal consistency loss that can wrap around existing semi-supervised VOS training pipelines without requiring architectural changes (Figure 2).</p>
         <ul>
           <li>Represents per-frame object presence and absence as binary vectors over all tracked objects.</li>
           <li>Models temporal consistency through a <strong>Hidden Markov Model</strong>.</li>
@@ -929,7 +933,7 @@
         <ul>
           <li>Improved overall <strong>J &amp; F</strong> by roughly <strong>0.9–1.3%</strong> on AOT-T across DAVIS, YouTube-VOS, and LVOS.</li>
           <li>Improved <strong>DeAOT-T</strong> by <strong>1.9%</strong> on DAVIS while remaining competitive on YouTube-VOS.</li>
-          <li>Produced larger gains of roughly <strong>3–4%</strong> on the hardest cases: <strong>small objects</strong>, <strong>occlusion</strong>, and <strong>disappearance/reappearance</strong>.</li>
+          <li>Produced larger gains of roughly <strong>3–4%</strong> on the hardest cases: <strong>small objects</strong>, <strong>occlusion</strong>, and <strong>disappearance/reappearance</strong> (Figure 1).</li>
           <li>An ensemble of baseline and temporal-loss-trained models achieved up to <strong>3.4%</strong> improvement on DAVIS and additional gains on YouTube-VOS and LVOS.</li>
         </ul>
       </div>
@@ -969,7 +973,7 @@
       </div>
       <p class="modal-section-title">Solution</p>
       <div class="modal-text">
-        <p>PAALSS Analyzer is a lightweight Streamlit app that turns transcript analysis into a controlled workflow rather than an ad hoc chat interaction.</p>
+        <p>PAALSS Analyzer (shown in the demo above) is a lightweight Streamlit app that turns transcript analysis into a controlled workflow rather than an ad hoc chat interaction.</p>
         <ul>
           <li>Uploads <strong>.docx</strong> or <strong>.txt</strong> transcripts.</li>
           <li>Extracts and pre-fills a numbered transcript block of <strong>Enunciados</strong>.</li>
